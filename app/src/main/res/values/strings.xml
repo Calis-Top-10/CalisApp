@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">C A L I S</string>
+    <string name="login_with_google">Login dengan Google</string>
+    <string name="splash_name">C A L I S</string>
+
+    <string name="with_sign_in">LOGIN DENGAN GOOGLE</string>
+    <string name="without_sign_in">MASUK TANPA LOGIN</string>
+
+    <string name="dasar">DASAR</string>
+    <string name="menengah">MENENGAH</string>
+    <string name="lanjut">LANJUT</string>
+
+    <string name="subscription">Menu Subscription</string>
+    <string name="user">Menu User</string>
+    <string name="backward">Menu Backward</string>
+    <string name="settings">Menu Settings</string>
+    <string name="report">Menu Report</string>
+    <string name="library">Menu Library</string>
+
+    <string name="a">a</string>
+    <string name="A">A</string>
+    <string name="b">b</string>
+    <string name="B">B</string>
+    <string name="c">c</string>
+    <string name="C">c</string>
+    <string name="d">c</string>
+    <string name="D">c</string>
+    <string name="e">c</string>
+    <string name="E">c</string>
+
+
+    <string name="TR">TR</string>
+
+    <string name="sound_recognition">Sound Recognation</string>
+
+    <string name="membaca">MEMBACA</string>
+    <string name="menulis">MENULIS</string>
+    <string name="menghitung">MENGHITUNG</string>
+    <string name="progress">PROGRES</string>
+    <string name="login_note">Penggunaan aplikasi ini diatur oleh Persyaratan Layanan dan Kebijakan Privasi  !</string>
+
+    <string name="web_client_id">327782085729-eqlor5jbl9cv3c06b77np9ic8so0sl01.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="grey">#434242</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="frame1">#B2A4FF</color>
+    <color name="frame2">#FFB4B4</color>
+    <color name="frame3">#FFDEB4</color>
+    <color name="frame4">#E9BC83</color>
+
+    <color name="palette1">#F66D9B</color>
+    <color name="palette2">#9561E2</color>
+    <color name="palette3">#6574CD</color>
+    <color name="palette4">#3490DC</color>
+    <color name="palette5">#4DA4C0</color>
+    <color name="palette6">#38C172</color>
+    <color name="palette7">#FFED4A</color>
+    <color name="palette8">#F6993F</color>
+    <color name="palette9">#E32F2F</color>
+
+    <color name="palette10">#FAFF00</color>
+    <color name="palette11">#60FFEC</color>
+    <color name="palette12">#FF9C07</color>
+    <color name="palette13">#76FF35</color>
+    <color name="palette14">#A560FF</color>
+
+    <color name="palette15">#10CD00</color>
+    <color name="palette16">#93F6B0</color>
+    <color name="palette17">#6B5E5E</color>
+
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CalisCapstone"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.setting.UserSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.setting.ApplicationSettingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.learning.write.level.WriteLanjut"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.write.level.WriteMenengah"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.write.level.WriteDasar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.read.level.ReadMenengah"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.read.level.ReadLanjut"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.read.level.ReadDasar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.calculate.level.CalculateLanjut"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.calculate.level.CalculateMenengah"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.calculate.level.CalculateDasar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.write.WriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.read.ReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.calculate.CalculateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.learning.report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>
