@@ -35,4 +35,6 @@
     <color name="palette16">#93F6B0</color>
     <color name="palette17">#6B5E5E</color>
 
+    <color name="buttonCancel">#c6c6c6</color>
+
 </resources>

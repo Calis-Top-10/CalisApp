@@ -74,28 +74,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.055" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.055" />
+        app:layout_constraintGuide_percent="0.425" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.575" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
     <ImageView
         android:id="@+id/backward"
@@ -117,7 +117,7 @@
         android:scaleY="1"
         android:progressDrawable="@drawable/custom_progressbar"
         style="?android:attr/progressBarStyleHorizontal"
-        app:layout_constraintTop_toTopOf="@id/horizontal3"
+        app:layout_constraintTop_toTopOf="@id/horizontal2"
         app:layout_constraintStart_toStartOf="@id/vertical3"
         app:layout_constraintEnd_toEndOf="@id/vertical6"/>
 
@@ -139,8 +139,8 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="@id/vertical1"
         app:layout_constraintEnd_toEndOf="@id/vertical8"
-        app:layout_constraintTop_toTopOf="@id/horizontal2"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal6"
+        app:layout_constraintTop_toTopOf="@id/horizontal3"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal4"
         android:background="@drawable/font_layout"
         android:padding="20dp">
 
@@ -157,17 +157,29 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/answerQuiz"
-        android:layout_gravity="center"
+        android:id="@+id/buttonOn"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/menu2"
         android:src="@drawable/baseline_mic_24"
-        android:padding="25dp"
+        android:background="@drawable/sound_menu_on"
+        app:layout_constraintDimensionRatio="1:1"
+        android:padding="20dp"
         app:layout_constraintStart_toStartOf="@id/vertical4"
         app:layout_constraintEnd_toEndOf="@id/vertical5"
-        app:layout_constraintTop_toTopOf="@id/horizontal4"
-        android:contentDescription="@string/sound_recognition" />
+        app:layout_constraintTop_toTopOf="@id/horizontal5"
+        android:contentDescription="@string/on" />
+
+    <ImageView
+        android:id="@+id/buttonOff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/baseline_mic_24"
+        android:background="@drawable/sound_menu_off"
+        app:layout_constraintDimensionRatio="1:1"
+        android:padding="30dp"
+        app:layout_constraintStart_toStartOf="@id/vertical4"
+        app:layout_constraintEnd_toEndOf="@id/vertical5"
+        app:layout_constraintTop_toTopOf="@id/horizontal5"
+        android:contentDescription="@string/off" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

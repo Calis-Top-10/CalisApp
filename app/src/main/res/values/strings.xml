@@ -28,8 +28,9 @@
     <string name="e">c</string>
     <string name="E">c</string>
 
-
     <string name="TR">TR</string>
+
+    <string name="baca">baca</string>
 
     <string name="sound_recognition">Sound Recognation</string>
 
@@ -38,6 +39,16 @@
     <string name="menghitung">MENGHITUNG</string>
     <string name="progress">PROGRES</string>
     <string name="login_note">Penggunaan aplikasi ini diatur oleh Persyaratan Layanan dan Kebijakan Privasi  !</string>
+
+
+    <string name="on">on</string>
+    <string name="off">off</string>
+
+    <string name="undo">Undo</string>
+    <string name="save_signature">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear">Clear</string>
+    <string name="pen_width">Pen Width</string>
 
     <string name="web_client_id">327782085729-eqlor5jbl9cv3c06b77np9ic8so0sl01.apps.googleusercontent.com</string>
 </resources>

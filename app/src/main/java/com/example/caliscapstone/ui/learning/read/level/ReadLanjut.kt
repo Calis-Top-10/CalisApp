@@ -15,6 +15,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import com.example.caliscapstone.R
+import com.example.caliscapstone.ui.learning.read.ReadActivity
+import com.example.caliscapstone.ui.learning.report.ReportActivity
 import com.example.caliscapstone.ui.login.LoginActivity
 import com.example.caliscapstone.utils.sound.playback.AndroidAudioPlayer
 import com.example.caliscapstone.utils.sound.record.AndroidAudioRecorder
@@ -34,6 +36,7 @@ class ReadLanjut : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
     private var buttonSpeak: ImageView? = null
     private var instructionText: TextView? = null
+    private var backwardPage: ImageView? = null
 
     // Audio Interface
     private val recorder by lazy {
@@ -48,21 +51,27 @@ class ReadLanjut : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_lanjut)
+
+        backwardPage = findViewById(R.id.backward)
+        buttonSpeak = findViewById(R.id.instruction)
+        instructionText = findViewById(R.id.textQuiz)
+        //val playRecord = findViewById<Button>(R.id.playRecord)
+
+        /* Sound Permissions */
         ActivityCompat.requestPermissions(
             this,
             arrayOf(Manifest.permission.RECORD_AUDIO),
             0
         )
 
-        buttonSpeak = findViewById(R.id.instruction)
-        instructionText = findViewById(R.id.textQuiz)
+        /* Backward Navigation */
+        backwardPage?.setOnClickListener{
+            intent = Intent(this@ReadLanjut, ReadActivity::class.java)
+            startActivity(intent)
+        }
 
-        val startRecord = findViewById<Button>(R.id.startRecord)
-        val endRecord = findViewById<Button>(R.id.endRecord)
-        val playRecord = findViewById<Button>(R.id.playRecord)
-
+        /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
-
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestScopes(Scope(Scopes.DRIVE_APPFOLDER))
             .requestServerAuthCode(serverClientId)
@@ -71,19 +80,22 @@ class ReadLanjut : AppCompatActivity(), TextToSpeech.OnInitListener {
             .build()
 
         gsc = GoogleSignIn.getClient(this, gso)
-
         val account: GoogleSignInAccount?= GoogleSignIn
             .getLastSignedInAccount(this)
-
         if (account==null) {
             goSignOut()
         }
 
-
+        /* Text To Speech quiz */
         buttonSpeak!!.isEnabled = false;
         tts = TextToSpeech(this, this)
-
         buttonSpeak!!.setOnClickListener { speakOut() }
+
+        /* Text To Speech quiz */
+        val startRecord = findViewById<ImageView>(R.id.buttonOn)
+        val endRecord = findViewById<ImageView>(R.id.buttonOff)
+        startRecord.visibility = View.GONE
+        endRecord.visibility = View.VISIBLE
 
         /* Audio recorder */
         startRecord.setOnClickListener {
@@ -91,13 +103,20 @@ class ReadLanjut : AppCompatActivity(), TextToSpeech.OnInitListener {
                 recorder.start(it)
                 audioFile = it
             }
+            startRecord.visibility = View.GONE
+            endRecord.visibility = View.VISIBLE
         }
         endRecord.setOnClickListener {
             recorder.stop()
+            startRecord.visibility = View.VISIBLE
+            endRecord.visibility = View.GONE
         }
+
+        /*
         playRecord.setOnClickListener {
             audioFile?.let { it1 -> player.playFile(it1) }
         }
+        */
     }
 
     /* Sign out if account==null */
@@ -123,7 +142,6 @@ class ReadLanjut : AppCompatActivity(), TextToSpeech.OnInitListener {
         } else {
             Log.e("TTS", "Initilization Failed!")
         }
-
     }
 
     /* Speech */
