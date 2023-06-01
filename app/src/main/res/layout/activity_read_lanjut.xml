@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="50sp"
-            android:text="@string/baca"
+            android:text="@string/BACA"
             android:textColor="@color/black"/>
 
     </FrameLayout>

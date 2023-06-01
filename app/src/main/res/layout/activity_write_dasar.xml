@@ -140,31 +140,39 @@
         style="?android:attr/progressBarStyleHorizontal"
         app:layout_constraintTop_toTopOf="@id/horizontal2"
         app:layout_constraintStart_toStartOf="@id/vertical3"
-        app:layout_constraintEnd_toEndOf="@id/vertical6"/>
+        app:layout_constraintEnd_toEndOf="@id/vertical8"/>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/vertical1"
+        app:layout_constraintEnd_toEndOf="@id/vertical5"
+        app:layout_constraintTop_toTopOf="@id/horizontal3"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal4"
+        android:background="@drawable/font_layout"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textQuiz"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:text="@string/A"
+            android:textColor="@color/grey"/>
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/instruction"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:padding="17dp"
-        android:src="@drawable/baseline_question_mark_24"
-        android:background="@drawable/menu3"
-        app:layout_constraintTop_toTopOf="@id/horizontal1"
-        app:layout_constraintStart_toStartOf="@id/vertical7"
+        android:src="@drawable/lightbulb"
+        android:background="@drawable/font_layout"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/vertical6"
         app:layout_constraintEnd_toEndOf="@id/vertical8"
-        android:contentDescription="@string/backward" />
-
-    <ImageView
-        android:id="@+id/buttonOff"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/baseline_mic_24"
-        android:background="@drawable/sound_menu"
-        app:layout_constraintDimensionRatio="1:1"
-        android:padding="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/horizontal3"
         app:layout_constraintBottom_toBottomOf="@id/horizontal4"
         android:contentDescription="@string/off" />
@@ -186,7 +194,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintDimensionRatio="1:1"/>
     </FrameLayout>
-
 
     <ImageView
         android:id="@+id/undoBtn"
