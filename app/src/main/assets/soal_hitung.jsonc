@@ -1,0 +1,281 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "items": [
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "0",
+          "answer": ["0"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_suara",
+          "question": "0",
+          "answer": ["0"]
+        },
+
+        {
+          "id": 2,
+          "type": "tulis_soal_teks",
+          "question": "1",
+          "answer": ["1"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "1",
+          "answer": ["1"]
+        },
+
+        {
+          "id": 3,
+          "type": "tulis_soal_teks",
+          "question": "2",
+          "answer": ["2"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "2",
+          "answer": ["2"]
+        },
+
+        {
+          "id": 4,
+          "type": "tulis_soal_teks",
+          "question": "3",
+          "answer": ["3"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_suara",
+          "question": "3",
+          "answer": ["3"]
+        },
+
+        {
+          "id": 5,
+          "type": "tulis_soal_teks",
+          "question": "4",
+          "answer": ["4"]
+        },
+        {
+          "id": 5,
+          "type": "tulis_soal_suara",
+          "question": "4",
+          "answer": ["4"]
+        },
+
+        {
+          "id": 6,
+          "type": "tulis_soal_teks",
+          "question": "5",
+          "answer": ["5"]
+        },
+        {
+          "id": 6,
+          "type": "tulis_soal_suara",
+          "question": "5",
+          "answer": ["5"]
+        },
+
+        {
+          "id": 7,
+          "type": "tulis_soal_teks",
+          "question": "6",
+          "answer": ["6"]
+        },
+        {
+          "id": 7,
+          "type": "tulis_soal_suara",
+          "question": "6",
+          "answer": ["6"]
+        },
+
+        {
+          "id": 8,
+          "type": "tulis_soal_teks",
+          "question": "7",
+          "answer": ["7"]
+        },
+        {
+          "id": 8,
+          "type": "tulis_soal_suara",
+          "question": "7",
+          "answer": ["7"]
+        },
+
+        {
+          "id": 9,
+          "type": "tulis_soal_teks",
+          "question": "8",
+          "answer": ["8"]
+        },
+        {
+          "id": 9,
+          "type": "tulis_soal_suara",
+          "question": "8",
+          "answer": ["8"]
+        },
+        {
+          "id": 10,
+          "type": "tulis_soal_teks",
+          "question": "9",
+          "answer": ["9"]
+        },
+        {
+          "id": 10,
+          "type": "tulis_soal_suara",
+          "question": "9",
+          "answer": ["9"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "items": [
+        {
+          "id": 1,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["0"]
+        },
+        {
+          "id": 2,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["1"]
+        },
+
+        {
+          "id": 3,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["2"]
+        },
+
+        {
+          "id": 4,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["3"]
+        },
+
+        {
+          "id": 5,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["4"]
+        },
+
+        {
+          "id": 6,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["5"]
+        },
+
+        {
+          "id": 7,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["6"]
+        },
+
+        {
+          "id": 8,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["7"]
+        },
+
+        {
+          "id": 9,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["8"]
+        },
+
+        {
+          "id": 10,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa banyak semut?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["9"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "items": [
+        // Penjumlahan
+        {
+          "id": 1,
+          "type": "hitung_soal_gambar",
+          "question": "Berapa banyak semut semuanya?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["9"]
+        },
+        // Pengurangan
+        {
+          "id": 1,
+          "type": "hitung_soal_gambar",
+          "question": "Ada berapa semut yang tersisa?",
+          "question_img": "<path ke gambar semut>",
+          "answer": ["9"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "items": [
+        // Penjumlahan
+        {
+          "id": 1,
+          "type": "hitung_soal_teks",
+          "question": "3 + 2 =",
+          "answer": ["5"]
+        },
+        // Pengurangan
+        {
+          "id": 2,
+          "type": "hitung_soal_gambar",
+          "question": "3 - 2 =",
+          "answer": ["1"],
+          "hint": "..."
+        }
+      ]
+    },
+    {
+          "id": 5,
+          "items": [
+            // Penjumlahan
+            {
+              "id": 1,
+              "type": "hitung_soal_teks",
+              "question": "3 + 2 =",
+              "answer": ["5"]
+            },
+            // Pengurangan
+            {
+              "id": 2,
+              "type": "hitung_soal_gambar",
+              "question": "3 - 2 =",
+              "answer": ["1"],
+              "hint": "..."
+            }
+          ]
+        }
+  ]
+}

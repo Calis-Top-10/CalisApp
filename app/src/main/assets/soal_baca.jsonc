@@ -1,0 +1,134 @@
+{
+    "lessons": [
+        {
+            "id": 1,
+            "items": [
+                {
+                    "id": 1,
+                    "type": "baca_input_suara",
+                    "question": "A",
+                    "answer": ["a"]
+                },
+                {
+                    "id": 2,
+                    "type": "baca_input_suara",
+                    "question": "B",
+                    "answer": ["b"]
+                },
+                {
+                    "id": 3,
+                    "type": "baca_input_suara",
+                    "question": "C",
+                    "answer": ["c"]
+                },
+                {
+                    "id": 3,
+                    "type": "baca_input_suara",
+                    "question": "d",
+                    "answer": ["d"]
+                },
+                {
+                    "id": 4,
+                    "type": "baca_input_suara",
+                    "question": "e",
+                    "answer": ["e"]
+                },
+                {
+                    "id": 5,
+                    "type": "baca_input_suara",
+                    "question": "m",
+                    "answer": ["m"]
+                },
+                {
+                    "id": 6,
+                    "type": "baca_input_suara",
+                    "question": "k",
+                    "answer": ["k"]
+                },
+                {
+                    "id": 7,
+                    "type": "baca_input_suara",
+                    "question": "u",
+                    "answer": ["u"]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "items": [
+                {
+                    "id": 1,
+                    "type": "baca_input_suara",
+                    "question": "baca",
+                    "answer": ["baca"]
+                },
+                {
+                    "id": 2,
+                    "type": "baca_input_suara",
+                    "question": "kaca",
+                    "answer": ["kaca"],
+                    "feedback_img": "<path ke gambar kaca>"
+                },
+                {
+                    "id": 3,
+                    "type": "baca_input_suara",
+                    "question": "buku",
+                    "answer": ["buku"],
+                    "feedback_img": "<path ke gambar buku>"
+                },
+                {
+                    "id": 3,
+                    "type": "baca_input_suara",
+                    "question": "caca",
+                    "answer": ["caca"]
+                },
+                {
+                    "id": 4,
+                    "type": "baca_input_suara",
+                    "question": "kamu",
+                    "answer": ["kamu"]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "items": [
+                {
+                    "id": 1,
+                    "type": "baca_input_suara",
+                    "question": "adab",
+                    "answer": ["adab"]
+                },
+                {
+                    "id": 2,
+                    "type": "baca_input_suara",
+                    "question": "membaca",
+                    "answer": ["membaca"]
+                },
+                {
+                    "id": 3,
+                    "type": "baca_input_suara",
+                    "question": "kebab",
+                    "answer": ["kebab"]
+                },
+                {
+                    "id": 4,
+                    "type": "baca_input_suara",
+                    "question": "muak",
+                    "answer": ["muak"]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "items": [
+                {
+                    "id": 1,
+                    "type": "baca_kalimat_input_suara",
+                    "question": "caca membaca buku",
+                    "answer": ["caca", "membaca", "buku"]
+                }
+            ]
+        }
+    ]
+}

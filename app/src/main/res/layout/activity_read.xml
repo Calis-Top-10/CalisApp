@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient1"
     app:layoutDescription="@xml/activity_read_scene"
-    tools:context=".ui.learning.read.ReadActivity" >
+    tools:context=".ui.activity.learning.read.ReadActivity" >
 
     <FrameLayout
         android:id="@+id/background"

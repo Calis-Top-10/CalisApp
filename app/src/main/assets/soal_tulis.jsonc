@@ -1,0 +1,350 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "items": [
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "A",
+          "answer": ["A"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "A besar",
+          "answer": ["A"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "a",
+          "answer": ["a"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "a kecil",
+          "answer": ["a"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "B",
+          "answer": ["B"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "B besar",
+          "answer": ["B"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "b",
+          "answer": ["b"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "b kecil",
+          "answer": ["b"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_teks",
+          "question": "C",
+          "answer": ["C"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "C besar",
+          "answer": ["C", "c"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_teks",
+          "question": "c",
+          "answer": ["c", "C"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "c kecil",
+          "answer": ["C", "c"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "D",
+          "answer": ["D"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "D besar",
+          "answer": ["D"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "d",
+          "answer": ["d"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "d kecil",
+          "answer": ["d"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "E",
+          "answer": ["E"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "E besar",
+          "answer": ["E"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "e",
+          "answer": ["e"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "e kecil",
+          "answer": ["e"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "E",
+          "answer": ["E"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "M besar",
+          "answer": ["M"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "m",
+          "answer": ["m"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "m kecil",
+          "answer": ["m"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "K",
+          "answer": ["K"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "K besar",
+          "answer": ["K"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "k",
+          "answer": ["k"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "k kecil",
+          "answer": ["k"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "U",
+          "answer": ["U"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "U besar",
+          "answer": ["U"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "u",
+          "answer": ["u"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "u kecil",
+          "answer": ["u"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "R",
+          "answer": ["R"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "R besar",
+          "answer": ["R"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "r",
+          "answer": ["r"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "r kecil",
+          "answer": ["r"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "items": [
+        {
+          "id": 1,
+          "type": "tulis_soal_teks",
+          "question": "baca",
+          "answer": ["baca"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_suara",
+          "question": "baca",
+          "answer": ["baca"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_teks",
+          "question": "kaca",
+          "answer": ["kaca"],
+          "feedback_img": "<path ke gambar kaca>"
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "kaca",
+          "answer": ["kaca"],
+          "feedback_img": "<path ke gambar kaca>"
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_teks",
+          "question": "buku",
+          "answer": ["buku"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "buku",
+          "answer": ["buku"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_teks",
+          "question": "caca",
+          "answer": ["caca"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "caca",
+          "answer": ["caca"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_teks",
+          "question": "kamu",
+          "answer": ["kamu"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_suara",
+          "question": "kamu",
+          "answer": ["kamu"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_teks",
+          "question": "kura-kura",
+          "answer": ["kura-kura"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_suara",
+          "question": "kura-kura",
+          "answer": ["kura-kura"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "items": [
+        {
+          "id": 1,
+          "type": "tulis_soal_suara",
+          "question": "adab",
+          "answer": ["adab"]
+        },
+        {
+          "id": 2,
+          "type": "tulis_soal_suara",
+          "question": "membaca",
+          "answer": ["membaca"]
+        },
+        {
+          "id": 3,
+          "type": "tulis_soal_suara",
+          "question": "kebab",
+          "answer": ["kebab"]
+        },
+        {
+          "id": 4,
+          "type": "tulis_soal_suara",
+          "question": "muak",
+          "answer": ["muak"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "items": [
+        {
+          "id": 1,
+          "type": "tulis_soal_baca",
+          "question": "kura-kura membaca buku",
+          "answer": ["kura-kura", "membaca", "buku"]
+        },
+        {
+          "id": 1,
+          "type": "tulis_soal_suara",
+          "question": "kura-kura membaca buku",
+          "answer": ["kura-kura", "membaca", "buku"]
+        }
+      ]
+    }
+  ]
+}

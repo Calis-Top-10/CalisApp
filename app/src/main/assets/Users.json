@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Denis Panjuta",
+      "email": "denis@gmail.com",
+      "gender": "Male",
+      "weight": 75.5,
+      "height": 182,
+      "phone": {
+        "mobile": "0000000000",
+        "office": "00000000"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jan Smith",
+      "email": "jsmith@gmail.com",
+      "gender": "Male",
+      "weight": 77.0,
+      "height": 183,
+      "phone": {
+        "mobile": "0000000000",
+        "office": "00000000"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Marie",
+      "email": "marie@gmail.com",
+      "gender": "Female",
+      "weight": 68.7,
+      "height": 175,
+      "phone": {
+        "mobile": "0000000000",
+        "office": "00000000"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Paul",
+      "email": "paul@gmail.com",
+      "gender": "Male",
+      "weight": 62.3,
+      "height": 174,
+      "phone": {
+        "mobile": "0000000000",
+        "office": "00000000"
+      }
+    }
+  ]
+}

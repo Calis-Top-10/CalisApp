@@ -22,53 +22,73 @@
         android:theme="@style/Theme.CalisCapstone"
         tools:targetApi="31">
         <activity
-            android:name=".ui.setting.UserSettingActivity"
+            android:name=".ui.activity.dummy.calculate.LevelCalculateActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.setting.ApplicationSettingActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.learning.write.level.WriteLanjut"
+            android:name=".ui.activity.dummy.write.LevelWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.write.level.WriteMenengah"
+            android:name=".ui.activity.dummy.read.LevelReadActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.write.level.WriteDasar"
+            android:name=".ui.activity.dummy.write.HomeWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.read.level.ReadMenengah"
+            android:name=".ui.activity.dummy.read.HomeReadActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.read.level.ReadLanjut"
+            android:name=".ui.activity.dummy.DummyHome"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.read.level.ReadDasar"
+            android:name=".ui.activity.setting.HayoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.calculate.level.CalculateLanjut"
+            android:name=".ui.activity.setting.UserSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.calculate.level.CalculateMenengah"
+            android:name=".ui.activity.setting.ApplicationSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.calculate.level.CalculateDasar"
+            android:name=".ui.activity.learning.write.level.WriteLanjut"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.write.WriteActivity"
+            android:name=".ui.activity.learning.write.level.WriteMenengah"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.read.ReadActivity"
+            android:name=".ui.activity.learning.write.level.WriteDasar"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.calculate.CalculateActivity"
+            android:name=".ui.activity.learning.read.level.ReadMenengah"
             android:exported="false" />
         <activity
-            android:name=".ui.learning.report.ReportActivity"
+            android:name=".ui.activity.learning.read.level.ReadLanjut"
             android:exported="false" />
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".ui.activity.learning.read.level.ReadDasar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.calculate.level.CalculateLanjut"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.calculate.level.CalculateMenengah"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.calculate.level.CalculateDasar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.write.WriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.read.ReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.calculate.CalculateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.learning.report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Splash">
             <intent-filter>
@@ -78,13 +98,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.activity.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.activity.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.dummy.calculate.HomeCalculateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.main.MainActivity"
             android:exported="true" />
     </application>
 
