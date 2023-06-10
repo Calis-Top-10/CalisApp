@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.api.response.testing.UserModelClass
+import com.example.caliscapstone.data.model.testing.UserModelClass
 
 class UserAdapter(val context: Context, private val items: ArrayList<UserModelClass>) :
 RecyclerView.Adapter<UserAdapter.ViewHolder>() {

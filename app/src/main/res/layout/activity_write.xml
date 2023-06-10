@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_write_scene"
-    tools:context=".ui.activity.learning.write.WriteActivity">
+    tools:context=".ui.activity.dashboard.home.write.WriteActivity">
 
     <FrameLayout
         android:id="@+id/background"

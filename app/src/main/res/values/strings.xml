@@ -31,6 +31,7 @@
     <string name="TR">TR</string>
 
     <string name="BACA">BACA</string>
+    <string name="id">ID</string>
 
     <string name="sound_recognition">Sound Recognation</string>
 
@@ -49,6 +50,12 @@
     <string name="cancel">Cancel</string>
     <string name="clear">Clear</string>
     <string name="pen_width">Pen Width</string>
+
+    <string name="const_text_name">Nama</string>
+    <string name="const_text_age">Umur</string>
+
+    <string name="UI_validation_invalid_email">Email format is invalid</string>
+    <string name="UI_validation_password_rules">Password must contain at least 6 characters</string>
 
     <string name="web_client_id">327782085729-eqlor5jbl9cv3c06b77np9ic8so0sl01.apps.googleusercontent.com</string>
 </resources>

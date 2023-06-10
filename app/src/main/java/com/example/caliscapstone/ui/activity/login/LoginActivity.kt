@@ -7,9 +7,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caliscapstone.ui.activity.home.HomeActivity
 import com.example.caliscapstone.R
-import com.example.caliscapstone.ui.activity.dummy.DummyHome
+import com.example.caliscapstone.ui.activity.adduser.AddUserActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -109,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
-        val intent = Intent(this, DummyHome::class.java)
+        val intent = Intent(this, AddUserActivity::class.java)
         startActivity(intent)
 
         finish()

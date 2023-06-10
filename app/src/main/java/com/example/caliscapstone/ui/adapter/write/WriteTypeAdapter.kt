@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.ui.activity.dummy.write.response.Lesson
+import com.example.caliscapstone.ui.activity.dashboard.home.write.response.Lesson
 
 class WriteTypeAdapter (val context: Context, private val items: ArrayList<Lesson>) : RecyclerView.Adapter<WriteTypeAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -19,7 +19,7 @@ class WriteTypeAdapter (val context: Context, private val items: ArrayList<Lesso
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(
-                R.layout.item_lesson_layout,
+                R.layout.rv_lesson_read,
                 parent,
                 false
             )
@@ -55,7 +55,7 @@ class WriteTypeAdapter (val context: Context, private val items: ArrayList<Lesso
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each item to
-        val tvId: TextView = view.findViewById(R.id.tv_id)
+        val tvId: TextView = view.findViewById(R.id.lesson_id)
     }
 
     interface OnItemClickCallback {

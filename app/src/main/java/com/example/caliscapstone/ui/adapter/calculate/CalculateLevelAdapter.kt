@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.ui.activity.dummy.calculate.response.Item
+import com.example.caliscapstone.ui.activity.dashboard.home.calculate.response.Item
 
 class CalculateLevelAdapter(val context: Context, private val items: ArrayList<Item>) :
     RecyclerView.Adapter<CalculateLevelAdapter.ViewHolder>() {
@@ -42,11 +42,11 @@ class CalculateLevelAdapter(val context: Context, private val items: ArrayList<I
 
         val item = items[position]
         holder.tvId.text = item.id.toString()
-        holder.tvType.text = item.type
-        holder.tyQuestion.text = item.question
-        holder.tyQuestionImage.text = item.question_img
-        holder.tvAnswer.text = item.answer.toString()
-        holder.tvHint.text = item.hint
+//        holder.tvType.text = item.type
+//        holder.tyQuestion.text = item.question
+//        holder.tyQuestionImage.text = item.question_img
+//        holder.tvAnswer.text = item.answer.toString()
+//        holder.tvHint.text = item.hint
     }
 
     /**
