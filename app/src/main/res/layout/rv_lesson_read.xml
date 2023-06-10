@@ -22,15 +22,15 @@
             android:id="@+id/lesson_image"
             android:transitionName="story_image"
             tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@tools:sample/avatars"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:layout_width="70dp"
             android:layout_height="100dp"
+            android:background="@drawable/menu3"
+            android:src="@drawable/baca"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            card_view:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
             android:id="@+id/frame_lesson"
@@ -50,7 +50,7 @@
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
-                android:text="@string/BACA"
+                tools:text="@string/BACA"
                 android:textColor="@color/frame1"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -65,7 +65,7 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
-                android:text="@string/dasar"
+                tools:text="@string/dasar"
                 android:textColor="@color/frame3"
                 android:textSize="16sp"
                 android:textStyle="bold"

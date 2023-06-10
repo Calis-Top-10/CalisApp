@@ -1,4 +1,4 @@
-package com.example.caliscapstone.ui.activity.dashboard.home.read
+package com.example.caliscapstone.ui.dump
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,8 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.ui.activity.dashboard.home.read.dummy.DummyReadActivity
+import com.example.caliscapstone.ui.activity.dashboard.home.read.LevelReadActivity
+import com.example.caliscapstone.ui.activity.dashboard.home.read.dummy.HomeReadActivity
 import com.example.caliscapstone.ui.activity.dashboard.home.read.response.Item
 import com.example.caliscapstone.ui.activity.dashboard.home.read.response.Lesson
 import com.example.caliscapstone.ui.activity.login.LoginActivity
@@ -23,7 +24,7 @@ import org.json.JSONObject
 import java.io.IOException
 import java.nio.charset.Charset
 
-class HomeReadActivity : AppCompatActivity() {
+class DumpRead : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
     private lateinit var rvLessonsList: RecyclerView
@@ -55,7 +56,7 @@ class HomeReadActivity : AppCompatActivity() {
 
         val hoverHome = findViewById<FrameLayout>(R.id.learning_hover)
         hoverHome.setOnClickListener {
-            val intentToLesson = Intent(this@HomeReadActivity, DummyReadActivity::class.java)
+            val intentToLesson = Intent(this@DumpRead, HomeReadActivity::class.java)
             startActivity(intentToLesson)
         }
 
@@ -123,7 +124,7 @@ class HomeReadActivity : AppCompatActivity() {
         rvLessonsList.adapter = itemAdapter
         itemAdapter.setOnItemClickCallback(object : ReadTypeAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Lesson) {
-                val intentToDetail = Intent(this@HomeReadActivity, LevelReadActivity::class.java)
+                val intentToDetail = Intent(this@DumpRead, LevelReadActivity::class.java)
                 intentToDetail.putExtra("DATA", data)
                 startActivity(intentToDetail)
             }

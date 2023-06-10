@@ -22,6 +22,12 @@
         android:theme="@style/Theme.CalisCapstone"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.dashboard.home.read.dummy.NyobaGetnya"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.dashboard.home.read.dummy.DummyQuestionReadActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Splash">
@@ -47,7 +53,7 @@
             android:name=".ui.activity.dashboard.home.write.HomeWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.dashboard.home.read.HomeReadActivity"
+            android:name=".ui.dump.DumpRead"
             android:exported="false" />
         <activity
             android:name=".ui.activity.dashboard.home.HomeActivity"
@@ -110,7 +116,7 @@
             android:name=".ui.activity.main.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.activity.dashboard.home.read.dummy.DummyReadActivity"
+            android:name=".ui.activity.dashboard.home.read.dummy.HomeReadActivity"
             android:exported="false" />
     </application>
 

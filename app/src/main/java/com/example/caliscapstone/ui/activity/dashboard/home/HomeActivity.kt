@@ -7,9 +7,9 @@ import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.example.caliscapstone.R
 import com.example.caliscapstone.ui.activity.dashboard.home.calculate.HomeCalculateActivity
-import com.example.caliscapstone.ui.activity.dashboard.home.read.HomeReadActivity
 import com.example.caliscapstone.ui.activity.dashboard.home.write.HomeWriteActivity
 import com.example.caliscapstone.ui.activity.dashboard.home.calculate.level.CalculateDasar
+import com.example.caliscapstone.ui.activity.dashboard.home.read.dummy.HomeReadActivity
 import com.example.caliscapstone.ui.activity.dashboard.report.ReportActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.ui.activity.dashboard.setting.UserSettingActivity

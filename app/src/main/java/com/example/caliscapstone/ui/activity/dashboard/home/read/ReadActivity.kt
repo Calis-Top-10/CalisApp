@@ -9,6 +9,7 @@ import com.example.caliscapstone.ui.activity.dashboard.home.read.level.ReadLanju
 import com.example.caliscapstone.ui.activity.dashboard.home.read.level.ReadMenengah
 import com.example.caliscapstone.R
 import com.example.caliscapstone.ui.activity.login.LoginActivity
+import com.example.caliscapstone.ui.dump.DumpRead
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -47,7 +48,7 @@ class ReadActivity : AppCompatActivity() {
         val levelSolid = findViewById<ImageView>(R.id.imageLevel3)
 
         backwardPage.setOnClickListener {
-            intent = Intent(this@ReadActivity, HomeReadActivity::class.java)
+            intent = Intent(this@ReadActivity, DumpRead::class.java)
             startActivity(intent)
         }
 

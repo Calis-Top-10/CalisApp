@@ -1,5 +1,7 @@
 package com.example.caliscapstone.data.model.get_lesson.read
 
+import java.io.Serializable
+
 data class Question(
     val additionalProp1: String,
     val additionalProp2: String,

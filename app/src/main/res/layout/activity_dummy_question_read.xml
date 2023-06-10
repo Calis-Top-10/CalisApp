@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dump.DumpRead">
+    tools:context=".ui.activity.dashboard.home.read.dummy.DummyQuestionReadActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical1"
@@ -25,14 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical5"
@@ -60,83 +60,140 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.675" />
+        app:layout_constraintGuide_percent="0.575" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.775" />
+        app:layout_constraintGuide_percent="0.675" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontal8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.975" />
+        app:layout_constraintGuide_percent="0.775" />
 
-    <FrameLayout
-        android:id="@+id/learning_hover"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.875" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.925" />
+
+    <LinearLayout
+        android:id="@+id/frame_title"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_menu_lightgreen"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/menu2"
         app:layout_constraintEnd_toStartOf="@+id/vertical6"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal2"
         app:layout_constraintTop_toTopOf="@+id/horizontal1">
 
-        <ImageView
-            android:id="@+id/continueTesting"
-            android:layout_gravity="center"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
-            android:src="@drawable/forward"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="@id/vertical4"
-            app:layout_constraintStart_toStartOf="@id/vertical3"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </FrameLayout>
+        <LinearLayout
+            android:id="@+id/frame_lesson"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lesson_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/frame1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:transitionName="user_name"
+                tools:text="@string/BACA" />
+
+            <TextView
+                android:id="@+id/lesson_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/frame3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:transitionName="user_name"
+                tools:text="@string/dasar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lesson_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="6"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:transitionName="story_upload_time"
+            tools:text="@string/id" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvLessonsList"
+        android:id="@+id/rv_lesson"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/vertical6"
-        app:layout_constraintStart_toStartOf="@id/vertical1"
-        app:layout_constraintTop_toBottomOf="@id/learning_hover"/>
-
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toStartOf="@+id/vertical6"
+        app:layout_constraintStart_toStartOf="@+id/vertical1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal3"
+        tools:itemCount="3"
+        tools:listitem="@layout/rv_lesson_read" />
 </androidx.constraintlayout.widget.ConstraintLayout>

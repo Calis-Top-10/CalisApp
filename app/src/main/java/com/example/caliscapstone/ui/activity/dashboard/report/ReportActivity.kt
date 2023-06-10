@@ -49,7 +49,6 @@ class ReportActivity : AppCompatActivity() {
         }
 
         testToken()
-        testApiCalling()
 
     }
     private fun goSignOut() {
@@ -58,6 +57,8 @@ class ReportActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    /*
 
     private fun testApiCalling() {
 
@@ -90,6 +91,7 @@ class ReportActivity : AppCompatActivity() {
                 })
         }
     }
+    */
 
     private fun testToken() {
         val serverClientId = getString(R.string.web_client_id)
