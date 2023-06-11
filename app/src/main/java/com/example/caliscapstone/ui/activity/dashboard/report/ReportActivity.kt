@@ -4,12 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.data.api.ApiConfig
-import com.example.caliscapstone.data.model.get_lesson.read.Lesson
-import com.example.caliscapstone.ui.activity.dashboard.home.read.dummy.ReadLessonAdapter
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -17,9 +13,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ReportActivity : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions

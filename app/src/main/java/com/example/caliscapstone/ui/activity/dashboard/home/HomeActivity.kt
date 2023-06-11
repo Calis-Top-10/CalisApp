@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.example.caliscapstone.R
-import com.example.caliscapstone.ui.activity.dashboard.home.calculate.HomeCalculateActivity
-import com.example.caliscapstone.ui.activity.dashboard.home.write.HomeWriteActivity
-import com.example.caliscapstone.ui.activity.dashboard.home.calculate.level.CalculateDasar
-import com.example.caliscapstone.ui.activity.dashboard.home.read.dummy.HomeReadActivity
+import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.ui.activity.dashboard.report.ReportActivity
+import com.example.caliscapstone.ui.activity.dashboard.setting.ApplicationSettingActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.ui.activity.dashboard.setting.UserSettingActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -26,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var gsc: GoogleSignInClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dummy_home)
+        setContentView(R.layout.activity_home)
 
         val serverClientId = getString(R.string.web_client_id)
 
@@ -60,19 +58,22 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
         settingPage.setOnClickListener {
-            intent = Intent(this@HomeActivity, CalculateDasar::class.java)
+            intent = Intent(this@HomeActivity, ApplicationSettingActivity::class.java)
             startActivity(intent)
         }
         readPage.setOnClickListener {
-            intent = Intent(this@HomeActivity, HomeReadActivity::class.java)
+            intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
+                .putExtra("read_hover", "baca")
             startActivity(intent)
         }
         writePage.setOnClickListener {
-            intent = Intent(this@HomeActivity, HomeWriteActivity::class.java)
+            intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
+                .putExtra("write_hover", "tulis")
             startActivity(intent)
         }
         calculatePage.setOnClickListener {
-            intent = Intent(this@HomeActivity, HomeCalculateActivity::class.java)
+            intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
+                .putExtra("calculate_hover", "hitung")
             startActivity(intent)
         }
         reportPage.setOnClickListener {
