@@ -3,7 +3,6 @@ package com.example.caliscapstone.ui.activity.dashboard.learning.type
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -11,11 +10,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.caliscapstone.R
 import com.example.caliscapstone.data.model.get_lesson.Question
+import com.example.caliscapstone.data.model.get_lesson.QuestionDetails
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
-import com.example.caliscapstone.ui.activity.dashboard.learning.HomeQuestionActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.sound.playback.AndroidAudioPlayer
 import com.example.caliscapstone.utils.sound.record.AndroidAudioRecorder
@@ -27,6 +27,7 @@ import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
 import java.io.File
 import java.util.Locale
+
 
 class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     private lateinit var gso: GoogleSignInOptions
@@ -45,24 +46,36 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     }
     private var audioFile: File? = null
 
+        private lateinit var questionList: QuestionDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_voice_acitivity)
-        instructionText = findViewById(R.id.textQuiz)
         buttonSpeak = findViewById(R.id.instruction)
 
-        print(intent.getSerializableExtra("intent_question").toString())
-        print(intent.getSerializableExtra("intent_max_index").toString())
-        val indexProgress = intent.getSerializableExtra("intent_max_index")
         Log.d("ResponseQuestion", intent.getSerializableExtra("intent_question").toString())
-        Log.d("ResponseIndex", intent.getSerializableExtra("intent_max_index").toString())
         Log.d("CurrentIndex", intent.getSerializableExtra("current_question_index").toString())
         Log.d("ProgressBarValue", intent.getSerializableExtra("progrees_bar_value").toString())
 
-        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
+        questionList = intent.getSerializableExtra("ini_nyoba") as QuestionDetails
 
+        /* Qyestion Box */
+        val questionBox = findViewById<TextView>(R.id.textQuiz)
+        questionBox.text = questionList.question
+        Log.d("testIndex", questionList.toString())
+
+
+        /* Progress Bar Value */
+        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
         val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBarz)
         progressBarHorizontal.progress = progressBarValue
+
+        /* Question */
+/*
+        val questionBox = findViewById<TextView>(R.id.textQuiz)
+
+        questionBox.text = question.questionDetails.question
+
+ */
 
         ActivityCompat.requestPermissions(
             this,
