@@ -181,7 +181,6 @@
         android:textColor="@color/palette15"
         android:background="@drawable/custom_form_input"
         android:hint="@string/const_text_name"
-        android:inputType="number"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
         android:transitionName="email"

@@ -83,10 +83,21 @@ class ApplicationSettingActivity : AppCompatActivity() {
             val nameForm = findViewById<EditTextClear>(R.id.ed_name)
             val ageForm = findViewById<EditTextClear>(R.id.ed_age)
 
+            val childId = "29b9c342-0c75-459a-8513-23443aec7283"
             val childName = nameForm.text.toString()
             val childAge = ageForm.text.toString().toInt()
-            val postModel = UpdateResponse(childName, childAge)
-            getUpdateChild(postModel)
+            val updateChild = UpdateResponse(childId, childName, childAge)
+            getUpdateChild(updateChild)
+        }
+
+
+
+        val gDelete = findViewById<Button>(R.id.g_delete)
+        gDelete.setOnClickListener {
+
+            val childId = "29b9c342-0c75-459a-8513-23443aec7283"
+            val deleteChild = ResponseDelete(childId)
+            getUserDelete(deleteChild)
         }
 
     }
@@ -98,7 +109,7 @@ class ApplicationSettingActivity : AppCompatActivity() {
         }
     }
 
-    private fun getUpdateChild(postModel: UpdateResponse) {
+    private fun getUpdateChild(updateChild: UpdateResponse) {
 
         val account: GoogleSignInAccount?= GoogleSignIn
             .getLastSignedInAccount(this)
@@ -106,11 +117,12 @@ class ApplicationSettingActivity : AppCompatActivity() {
         val addResult = MutableLiveData<UpdateResponse>()
         val error = MutableLiveData("")
 
-        val client = ApiConfig.getApiService().getUpdateChild("Bearer $idToken", postModel)
+        val client = ApiConfig.getApiService().getUpdateChild("Bearer $idToken", updateChild )
         client.enqueue(object : Callback<UpdateResponse> {
             override fun onResponse(call: Call<UpdateResponse>, response: Response<UpdateResponse>) {
                 if (response.isSuccessful) {
                     addResult.postValue(response.body())
+                    Log.d("Update Account", response.body().toString())
                 } else {
                     response.errorBody()?.let {
                         val errorResponse = JSONObject(it.string())
@@ -127,13 +139,13 @@ class ApplicationSettingActivity : AppCompatActivity() {
         })
     }
 
-    private fun getUserDelete() {
+    private fun getUserDelete(deleteChild: ResponseDelete) {
         val account: GoogleSignInAccount?= GoogleSignIn
             .getLastSignedInAccount(this)
         val idToken = account?.idToken
         if (idToken != null) {
             ApiConfig.getApiService()
-                .getDeleteChild("Bearer $idToken")
+                .getDeleteChild("Bearer $idToken", deleteChild)
                 .enqueue(object : Callback<ResponseDelete> {
                     override fun onResponse(
                         call: Call<ResponseDelete>,
@@ -141,7 +153,7 @@ class ApplicationSettingActivity : AppCompatActivity() {
                     ) {
                         try {
                             val responseBody = response.body()!!
-                            Log.e("UserAccount", responseBody.toString())
+                            Log.d("Delete Account", responseBody.toString())
                         } catch (ex: java.lang.Exception) {
                             ex.printStackTrace()
                         }

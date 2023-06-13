@@ -5,6 +5,7 @@ import com.example.caliscapstone.data.model.delete.ResponseDelete
 import com.example.caliscapstone.data.model.get_lesson.ResponseRead
 import com.example.caliscapstone.data.model.login.Children
 import com.example.caliscapstone.data.model.login.ResponseLogin
+import com.example.caliscapstone.data.model.report.UserReport
 import com.example.caliscapstone.data.model.update.UpdateResponse
 import com.example.caliscapstone.data.model.whoami.Whoami
 import retrofit2.Call
@@ -42,13 +43,19 @@ interface Api {
     @POST("deleteChild")
     fun getDeleteChild(
         @Header("Authorization") token: String,
+        @Body deleteChild: ResponseDelete
     ) : Call<ResponseDelete>
 
     @Headers("Content-Type: application/json")
     @POST("updateChild")
     fun getUpdateChild(
         @Header("Authorization") token: String,
-        @Body postModel: UpdateResponse
+        @Body updateChild: UpdateResponse
     ) : Call<UpdateResponse>
+    @GET("userReport")
+    fun getUserReport(
+        @Header("Authorization") token: String,
+        @Query("childId") childId: String
+    ) : Call<UserReport>
 
 }

@@ -229,11 +229,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_senin"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_senin"
                         android:layout_width="wrap_content"
@@ -250,11 +250,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_selasa"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_selasa"
                         android:layout_width="wrap_content"
@@ -271,11 +271,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_rabu"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_rabu"
                         android:layout_width="wrap_content"
@@ -292,11 +292,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_kamis"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_kamis"
                         android:layout_width="wrap_content"
@@ -313,11 +313,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_jumat"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_jumat"
                         android:layout_width="wrap_content"
@@ -334,11 +334,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_sabtu"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_sabtu"
                         android:layout_width="wrap_content"
@@ -355,11 +355,11 @@
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
+                    <CheckBox
                         android:id="@+id/icon_minggu"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_face_active"/>
+                        android:button="@drawable/icon_face_toggle"/>
                     <TextView
                         android:id="@+id/text_minggu"
                         android:layout_width="wrap_content"
