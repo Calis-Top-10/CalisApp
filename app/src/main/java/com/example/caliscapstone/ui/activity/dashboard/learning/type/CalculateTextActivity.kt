@@ -4,10 +4,14 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewTreeObserver
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import com.example.caliscapstone.R
+import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
@@ -48,13 +52,24 @@ class CalculateTextActivity : AppCompatActivity() {
             goSignOut()
         }
 
-        val backwardPage = findViewById<ImageView>(R.id.backward)
         /* Backward Navigation */
+        val backwardPage = findViewById<ImageView>(R.id.backward)
         backwardPage?.setOnClickListener{
             intent = Intent(this@CalculateTextActivity, HomeLessonActivity::class.java)
                 .putExtra("calculate_hover", "hitung")
             startActivity(intent)
         }
+
+        /* Progress Bar Value */
+        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
+        val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBar)
+        progressBarHorizontal.progress = progressBarValue
+
+        /* Qyestion Box */
+        val questionList = intent.getSerializableExtra("intent_question") as Question
+        val questionBox = findViewById<TextView>(R.id.textQuiz)
+        questionBox.text = questionList.questionDetails.question
+        Log.d("testIndex", questionList.toString())
 
         /* Writing Box */
         paint = findViewById(R.id.draw_view)

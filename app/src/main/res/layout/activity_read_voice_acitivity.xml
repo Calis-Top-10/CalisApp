@@ -118,14 +118,14 @@
         app:layout_constraintDimensionRatio="1:1"
         android:padding="17dp"
         android:src="@drawable/backward"
-        android:background="@drawable/menu1"
+        android:background="@drawable/custom_button_ripple_6"
         app:layout_constraintTop_toTopOf="@id/horizontal1"
         app:layout_constraintStart_toStartOf="@id/vertical1"
         app:layout_constraintEnd_toEndOf="@id/vertical2"
         android:contentDescription="@string/backward" />
 
     <ProgressBar
-        android:id="@+id/progressBarz"
+        android:id="@+id/progressBar"
         android:layout_width="0dp"
         android:layout_height="25dp"
         android:indeterminate="false"

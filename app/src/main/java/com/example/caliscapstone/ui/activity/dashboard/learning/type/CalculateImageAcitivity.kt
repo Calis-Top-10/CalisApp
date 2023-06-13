@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewTreeObserver
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.caliscapstone.R
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
@@ -49,13 +50,18 @@ class CalculateImageAcitivity : AppCompatActivity() {
             goSignOut()
         }
 
-        val backwardPage = findViewById<ImageView>(R.id.backward)
         /* Backward Navigation */
+        val backwardPage = findViewById<ImageView>(R.id.backward)
         backwardPage?.setOnClickListener{
             intent = Intent(this@CalculateImageAcitivity, HomeLessonActivity::class.java)
                 .putExtra("calculate_hover", "hitung")
             startActivity(intent)
         }
+
+        /* Progress Bar Value */
+        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
+        val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBar)
+        progressBarHorizontal.progress = progressBarValue
 
         /* Writing Box */
         paint = findViewById(R.id.draw_view)

@@ -55,35 +55,24 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         buttonSpeak = findViewById(R.id.instruction)
         val continueButton = findViewById<FrameLayout>(R.id.continueButton)
 
-        Log.d("ResponseQuestion", intent.getSerializableExtra("intent_question").toString())
-        Log.d("CurrentIndex", intent.getSerializableExtra("current_question_index").toString())
-        Log.d("ProgressBarValue", intent.getSerializableExtra("progrees_bar_value").toString())
-
-        val questionList = intent.getSerializableExtra("intent_question") as Question
-
-        /* Qyestion Box */
-        val questionBox = findViewById<TextView>(R.id.textQuiz)
-        questionBox.text = questionList.questionDetails.question
-        Log.d("testIndex", questionList.toString())
-
-        /* Progress Bar Value */
-        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
-        val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBarz)
-        progressBarHorizontal.progress = progressBarValue
-
-        /* Question */
-/*
-        val questionBox = findViewById<TextView>(R.id.textQuiz)
-        questionBox.text = question.questionDetails.question
- */
-
-        val backwardPage = findViewById<ImageView>(R.id.backward)
         /* Backward Navigation */
+        val backwardPage = findViewById<ImageView>(R.id.backward)
         backwardPage?.setOnClickListener{
             intent = Intent(this@ReadVoiceAcitivity, HomeLessonActivity::class.java)
                 .putExtra("read_hover", "baca")
             startActivity(intent)
         }
+
+        /* Progress Bar Value */
+        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
+        val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBar)
+        progressBarHorizontal.progress = progressBarValue
+
+        /* Qyestion Box */
+        val questionList = intent.getSerializableExtra("intent_question") as Question
+        val questionBox = findViewById<TextView>(R.id.textQuiz)
+        questionBox.text = questionList.questionDetails.question
+        Log.d("testIndex", questionList.toString())
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
