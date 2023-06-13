@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.dashboard.home.HomeActivity">
 
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -20,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/menu4"
+        android:background="@drawable/custom_button_ripple_1"
         android:contentDescription="@string/user"
         android:padding="13dp"
         android:src="@drawable/user"
@@ -33,7 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/menu3"
+        android:background="@drawable/custom_button_ripple_2"
         android:contentDescription="@string/settings"
         android:padding="13dp"
         android:src="@drawable/settings"
@@ -56,13 +55,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/nav_read"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/palette10"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="12dp"
+        android:background="@drawable/custom_button_ripple_7"
         app:layout_constraintDimensionRatio="0.75:1"
         app:layout_constraintEnd_toEndOf="@id/vertical3"
         app:layout_constraintStart_toStartOf="@id/vertical1"
@@ -92,15 +89,14 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+
+    <FrameLayout
         android:id="@+id/nav_write"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/palette11"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="12dp"
+        android:background="@drawable/custom_button_ripple_8"
         app:layout_constraintDimensionRatio="0.75:1"
         app:layout_constraintEnd_toEndOf="@id/vertical6"
         app:layout_constraintStart_toStartOf="@id/vertical4"
@@ -130,15 +126,13 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/nav_calculate"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/palette12"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="12dp"
+        android:background="@drawable/custom_button_ripple_9"
         app:layout_constraintDimensionRatio="0.75:1"
         app:layout_constraintEnd_toEndOf="@id/vertical3"
         app:layout_constraintStart_toStartOf="@id/vertical1"
@@ -168,15 +162,13 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/nav_report"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/palette13"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="12dp"
+        android:background="@drawable/custom_button_ripple_10"
         app:layout_constraintDimensionRatio="0.75:1"
         app:layout_constraintEnd_toEndOf="@id/vertical6"
         app:layout_constraintStart_toStartOf="@id/vertical4"
@@ -206,7 +198,7 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical1"

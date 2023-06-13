@@ -65,7 +65,7 @@ class HomeQuestionActivity : AppCompatActivity() {
             intentLauncher.launch(
                 Intent(this, getQuestionActivityFromString(question.questionType))
                     .putExtra("intent_question", question)
-                    .putExtra("ini_nyoba", question.questionDetails)
+                    .putExtra("question_details", question.questionDetails)
                     .putExtra("progrees_bar_value", progressBarValue.toInt())
             )
 

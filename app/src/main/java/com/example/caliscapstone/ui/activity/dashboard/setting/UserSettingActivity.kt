@@ -19,10 +19,6 @@ import com.google.android.gms.common.api.Scope
 class UserSettingActivity : AppCompatActivity() {
 
     private lateinit var gImage: ImageView
-
-    private lateinit var gName: TextView
-    private lateinit var gEmail: TextView
-    private lateinit var gId: TextView
     private lateinit var gSignOut: Button
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
@@ -32,9 +28,6 @@ class UserSettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_setting)
 
         gImage = findViewById(R.id.g_image)
-        gName = findViewById(R.id.g_name)
-        gId = findViewById(R.id.g_id)
-        gEmail = findViewById(R.id.g_email)
         gSignOut = findViewById(R.id.g_sign_out)
 
         val serverClientId = getString(R.string.web_client_id)
@@ -52,10 +45,6 @@ class UserSettingActivity : AppCompatActivity() {
             .getLastSignedInAccount(this)
 
         if (account!=null) {
-            gName.text=account.displayName
-            gEmail.text=account.email
-            gId.text=account.id
-
             Glide.with(applicationContext).load(account.photoUrl).into(gImage)
         }
 

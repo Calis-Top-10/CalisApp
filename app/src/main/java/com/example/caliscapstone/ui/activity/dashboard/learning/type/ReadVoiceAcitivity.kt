@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.caliscapstone.R
@@ -35,6 +37,7 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     private var tts: TextToSpeech? = null
     private var buttonSpeak: ImageView? = null
     private var instructionText: TextView? = null
+    private lateinit var questionList: QuestionDetails
 
     // Audio Interface
     private val recorder by lazy {
@@ -46,23 +49,22 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     }
     private var audioFile: File? = null
 
-        private lateinit var questionList: QuestionDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_voice_acitivity)
         buttonSpeak = findViewById(R.id.instruction)
+        val continueButton = findViewById<FrameLayout>(R.id.continueButton)
 
         Log.d("ResponseQuestion", intent.getSerializableExtra("intent_question").toString())
         Log.d("CurrentIndex", intent.getSerializableExtra("current_question_index").toString())
         Log.d("ProgressBarValue", intent.getSerializableExtra("progrees_bar_value").toString())
 
-        questionList = intent.getSerializableExtra("ini_nyoba") as QuestionDetails
+        val questionList = intent.getSerializableExtra("intent_question") as Question
 
         /* Qyestion Box */
         val questionBox = findViewById<TextView>(R.id.textQuiz)
-        questionBox.text = questionList.question
+        questionBox.text = questionList.questionDetails.question
         Log.d("testIndex", questionList.toString())
-
 
         /* Progress Bar Value */
         val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
@@ -72,16 +74,8 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         /* Question */
 /*
         val questionBox = findViewById<TextView>(R.id.textQuiz)
-
         questionBox.text = question.questionDetails.question
-
  */
-
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.RECORD_AUDIO),
-            0
-        )
 
         val backwardPage = findViewById<ImageView>(R.id.backward)
         /* Backward Navigation */
@@ -112,6 +106,11 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         tts = TextToSpeech(this, this)
         buttonSpeak!!.setOnClickListener { speakOut() }
 
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.RECORD_AUDIO),
+            0
+        )
         /* Text To Speech quiz */
         val startRecord = findViewById<ImageView>(R.id.buttonOn)
         val endRecord = findViewById<ImageView>(R.id.buttonOff)
@@ -124,36 +123,24 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
                 recorder.start(it)
                 audioFile = it
             }
+            Toast.makeText(this@ReadVoiceAcitivity, "Mulai membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.GONE
             endRecord.visibility = View.VISIBLE
         }
         endRecord.setOnClickListener {
             recorder.stop()
+            Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.VISIBLE
             endRecord.visibility = View.GONE
+        }
 
+        continueButton.setOnClickListener{
             val data = Intent()
             data.putExtra("current_progress", "value1")
             setResult(Activity.RESULT_OK, data)
             finish()
-        }
-        /*
-                val playRecord = findViewById<Button>(R.id.playRecord)
-                val questionList = intent.getSerializableExtra("intent_question") as ArrayList<Question>
-                Log.d("QuestionListTest", questionList.toString())
 
-                /* Sound Permissions */
-                val buttonSpeak = findViewById<ImageView>(R.id.instruction)
-                val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBarz)
-                buttonSpeak.setOnClickListener {
-                    currentProgress += 10
-                    progressBarHorizontal.progress = currentProgress
-
-                }
-        playRecord.setOnClickListener {
-            audioFile?.let { it1 -> player.playFile(it1) }
         }
-        */
 
     }
 

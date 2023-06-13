@@ -43,6 +43,9 @@
     <string name="progress">PROGRES</string>
     <string name="login_note">Penggunaan aplikasi ini diatur oleh Persyaratan Layanan dan Kebijakan Privasi  !</string>
 
+    <string name="signout">LOGOUT</string>
+    <string name="update">UPDATE AKUN</string>
+    <string name="delete">HAPUS AKUN</string>
 
     <string name="on">on</string>
     <string name="off">off</string>

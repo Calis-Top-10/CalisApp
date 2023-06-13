@@ -95,7 +95,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.975" />
 
     <ImageView
         android:id="@+id/backward"
@@ -138,24 +152,25 @@
         android:contentDescription="@string/backward" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/vertical1"
-        app:layout_constraintEnd_toEndOf="@id/vertical8"
-        app:layout_constraintTop_toTopOf="@id/horizontal3"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal4"
         android:background="@drawable/font_layout"
-        android:padding="20dp">
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal4"
+        app:layout_constraintEnd_toEndOf="@id/vertical8"
+        app:layout_constraintStart_toStartOf="@id/vertical1"
+        app:layout_constraintTop_toTopOf="@id/horizontal3">
 
         <TextView
             android:id="@+id/textQuiz"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
             android:textSize="50sp"
-            tools:text="@string/A"
-            android:textColor="@color/black"/>
+            android:textStyle="bold"
+            tools:text="@string/A" />
 
     </FrameLayout>
 
@@ -184,4 +199,29 @@
         app:layout_constraintEnd_toEndOf="@id/vertical5"
         app:layout_constraintTop_toTopOf="@id/horizontal5"
         android:contentDescription="@string/off" />
+
+    <FrameLayout
+        android:id="@+id/continueButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/custom_button_ripple_6"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal7"
+        app:layout_constraintEnd_toStartOf="@+id/vertical8"
+        app:layout_constraintStart_toStartOf="@+id/vertical1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal6">
+
+        <ImageView
+            android:id="@+id/continueTesting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/forward"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/vertical4"
+            app:layout_constraintStart_toStartOf="@id/vertical3"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.caliscapstone.ui.activity.dashboard.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.example.caliscapstone.R
@@ -46,10 +47,10 @@ class HomeActivity : AppCompatActivity() {
 
         //WindowCompat.setDecorFitsSystemWindows(window, false)
         //window.statusBarColor = Color.TRANSPARENT
-        val readPage = findViewById<CardView>(R.id.nav_read)
-        val writePage = findViewById<CardView>(R.id.nav_write)
-        val calculatePage = findViewById<CardView>(R.id.nav_calculate)
-        val reportPage = findViewById<CardView>(R.id.nav_report)
+        val readPage = findViewById<FrameLayout>(R.id.nav_read)
+        val writePage = findViewById<FrameLayout>(R.id.nav_write)
+        val calculatePage = findViewById<FrameLayout>(R.id.nav_calculate)
+        val reportPage = findViewById<FrameLayout>(R.id.nav_report)
         val userPage = findViewById<ImageView>(R.id.userMenu)
         val settingPage = findViewById<ImageView>(R.id.settingsMenu)
 
