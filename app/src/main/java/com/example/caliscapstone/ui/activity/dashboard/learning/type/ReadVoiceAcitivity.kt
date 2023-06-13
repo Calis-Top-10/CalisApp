@@ -3,6 +3,10 @@ package com.example.caliscapstone.ui.activity.dashboard.learning.type
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.AudioFormat
+import android.media.AudioRecord
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -18,6 +22,7 @@ import com.example.caliscapstone.R
 import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.data.model.get_lesson.QuestionDetails
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
+import com.example.caliscapstone.tflite.CalisManualAudioClassifier
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.sound.playback.AndroidAudioPlayer
 import com.example.caliscapstone.utils.sound.record.AndroidAudioRecorder
@@ -39,15 +44,36 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     private var instructionText: TextView? = null
     private lateinit var questionList: QuestionDetails
 
+    private lateinit var calisAudioClassifier: CalisManualAudioClassifier;
+
     // Audio Interface
-    private val recorder by lazy {
-        AndroidAudioRecorder(applicationContext)
+    private lateinit var audioRecord: AudioRecord
+
+    private fun initAudioRecord() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            /* Sound Permissions */
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                0
+            )
+        }
+        audioRecord = AudioRecord.Builder()
+            .setAudioSource(MediaRecorder.AudioSource.MIC)
+            .setAudioFormat(
+                AudioFormat.Builder()
+                    .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                    .setSampleRate(16000)
+                    .setChannelMask(AudioFormat.CHANNEL_IN_MONO)
+                    .build())
+            .setBufferSizeInBytes(AudioRecord.getMinBufferSize(16000, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT))
+            .build()
     }
 
-    private val player by lazy {
-        AndroidAudioPlayer(applicationContext)
-    }
-    private var audioFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,16 +81,20 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         buttonSpeak = findViewById(R.id.instruction)
         val continueButton = findViewById<FrameLayout>(R.id.continueButton)
 
+        /* Audio classifier */
+        initAudioRecord()
+        calisAudioClassifier = CalisManualAudioClassifier(assets)
+
         /* Backward Navigation */
         val backwardPage = findViewById<ImageView>(R.id.backward)
-        backwardPage?.setOnClickListener{
+        backwardPage?.setOnClickListener {
             intent = Intent(this@ReadVoiceAcitivity, HomeLessonActivity::class.java)
                 .putExtra("read_hover", "baca")
             startActivity(intent)
         }
 
         /* Progress Bar Value */
-        val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
+        val progressBarValue = intent.getIntExtra("progrees_bar_value", 0)
         val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBar)
         progressBarHorizontal.progress = progressBarValue
 
@@ -84,9 +114,9 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
             .build()
 
         gsc = GoogleSignIn.getClient(this, gso)
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
-        if (account==null) {
+        if (account == null) {
             goSignOut()
         }
 
@@ -108,29 +138,30 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
 
         /* Audio recorder */
         startRecord.setOnClickListener {
-            File(cacheDir, "audio.mp3").also {
-                recorder.start(it)
-                audioFile = it
-            }
+            Log.d("STARTRECORD", "Start record clicked")
+            // FIXME: endRecord is is clicked instead of this startRecord
+            audioRecord.startRecording()
             Toast.makeText(this@ReadVoiceAcitivity, "Mulai membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.GONE
             endRecord.visibility = View.VISIBLE
         }
+
         endRecord.setOnClickListener {
-            recorder.stop()
+            audioRecord.stop()
+            calisAudioClassifier.isAnswerCorrect(audioRecord, "muak")
             Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.VISIBLE
             endRecord.visibility = View.GONE
+            // TODO: Call the function below to release resources
+            // audioRecord.release()
         }
 
-        continueButton.setOnClickListener{
+        continueButton.setOnClickListener {
             val data = Intent()
             data.putExtra("current_progress", "value1")
             setResult(Activity.RESULT_OK, data)
             finish()
-
         }
-
     }
 
     /* Sign out if account==null */
