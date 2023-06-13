@@ -2,6 +2,7 @@ package com.example.caliscapstone.ui.activity.dashboard.learning.type
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +11,11 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.drawToBitmap
 import com.example.caliscapstone.R
 import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
+import com.example.caliscapstone.tflite.CalisCharacterClassifier
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -27,12 +30,16 @@ class WriteTextActivity : AppCompatActivity() {
     private lateinit var gsc: GoogleSignInClient
     private lateinit var paint: DrawView
     private lateinit var sizeDialog: Dialog
+
+    private lateinit var calisCharacterClassifier: CalisCharacterClassifier
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_text)
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
+        calisCharacterClassifier = CalisCharacterClassifier(assets)
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
@@ -105,8 +112,16 @@ class WriteTextActivity : AppCompatActivity() {
         /* Save Button */
         saveBtn.setOnClickListener {
             if (paint.isTouch()) {
-                Toast.makeText(this@WriteTextActivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
-            }else{
+                val isCorrect = calisCharacterClassifier.isAnswersCorrect(
+                    // TODO: Feed the expectedAnswers from the question
+                    paint.drawToBitmap(Bitmap.Config.ARGB_8888), arrayListOf<String>("J"))
+                if (isCorrect) {
+                    Toast.makeText(this@WriteTextActivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
+                }
+                else {
+                    Toast.makeText(this@WriteTextActivity, "Jawaban Salah!!", Toast.LENGTH_LONG).show()
+                }
+            } else {
                 Toast.makeText(this@WriteTextActivity, "Jawaban Kosong!!", Toast.LENGTH_LONG).show()
             }
             finish()
@@ -120,5 +135,4 @@ class WriteTextActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }
