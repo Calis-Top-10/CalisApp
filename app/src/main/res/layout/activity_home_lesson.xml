@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.dashboard.home.read.dummy.DummyReadActivity">
+    tools:context=".ui.activity.dashboard.learning.HomeLessonActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical1"
@@ -125,6 +125,19 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.925" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_toolbar"
+        app:title="@string/level"
+        app:titleTextColor="@color/white" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lesson"
         android:layout_width="0dp"
@@ -132,7 +145,7 @@
         android:nestedScrollingEnabled="false"
         app:layout_constraintEnd_toStartOf="@+id/vertical6"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:itemCount="3"
         tools:listitem="@layout/rv_lesson_read" />
 

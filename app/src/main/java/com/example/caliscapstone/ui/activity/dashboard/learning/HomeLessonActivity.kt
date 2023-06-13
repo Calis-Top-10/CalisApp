@@ -112,19 +112,4 @@ class HomeLessonActivity : AppCompatActivity() {
                 })
         }
     }
-    private fun testToken() {
-        val serverClientId = getString(R.string.web_client_id)
-        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestScopes(Scope(Scopes.DRIVE_APPFOLDER))
-            .requestServerAuthCode(serverClientId)
-            .requestIdToken(serverClientId)
-            .requestEmail()
-            .build()
-
-        val account: GoogleSignInAccount?= GoogleSignIn
-            .getLastSignedInAccount(baseContext)
-        val idToken = account?.idToken
-        val msg = "idToken: $idToken"
-        Log.d("one tap", msg)
-    }
 }

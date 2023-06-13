@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@drawable/menu2"
+        android:background="@drawable/custom_button_ripple_9"
         app:layout_constraintEnd_toStartOf="@+id/vertical6"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
         app:layout_constraintTop_toTopOf="@+id/horizontal1">

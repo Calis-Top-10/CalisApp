@@ -145,7 +145,7 @@
         app:layout_constraintDimensionRatio="1:1"
         android:padding="17dp"
         android:src="@drawable/baseline_question_mark_24"
-        android:background="@drawable/menu3"
+        android:background="@drawable/custom_button_ripple_2"
         app:layout_constraintTop_toTopOf="@id/horizontal1"
         app:layout_constraintStart_toStartOf="@id/vertical7"
         app:layout_constraintEnd_toEndOf="@id/vertical8"

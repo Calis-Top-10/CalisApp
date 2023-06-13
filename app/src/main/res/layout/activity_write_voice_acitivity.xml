@@ -144,7 +144,6 @@
         app:layout_constraintStart_toStartOf="@id/vertical3"
         app:layout_constraintEnd_toEndOf="@id/vertical8"/>
 
-
     <ImageView
         android:id="@+id/buttonOff"
         android:layout_width="0dp"
@@ -182,7 +181,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/undo"
-        android:background="@drawable/button_menu_orange"
+        android:background="@drawable/custom_button_ripple_9"
         app:layout_constraintDimensionRatio="1:1"
         android:padding="15dp"
         app:layout_constraintStart_toStartOf="@id/vertical1"
@@ -195,7 +194,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/close"
-        android:background="@drawable/button_menu_red"
+        android:background="@drawable/custom_button_ripple_5"
         app:layout_constraintDimensionRatio="1:1"
         android:padding="15dp"
         app:layout_constraintStart_toStartOf="@id/vertical1"
@@ -209,7 +208,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/check"
-        android:background="@drawable/button_menu_green"
+        android:background="@drawable/custom_button_ripple_10"
         app:layout_constraintDimensionRatio="1:1"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="@id/vertical8"

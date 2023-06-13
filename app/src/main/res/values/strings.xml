@@ -14,8 +14,9 @@
     <string name="user">Menu User</string>
     <string name="backward">Menu Backward</string>
     <string name="settings">Menu Settings</string>
-    <string name="report">Menu Report</string>
+    <string name="report">Menu Progress</string>
     <string name="library">Menu Library</string>
+    <string name="level">Level Pembelajaran</string>
 
     <string name="a">a</string>
     <string name="A">A</string>
@@ -46,6 +47,17 @@
     <string name="signout">LOGOUT</string>
     <string name="update">UPDATE AKUN</string>
     <string name="delete">HAPUS AKUN</string>
+
+    <string name="report_progress">Progres Belajar</string>
+    <string name="report_name">Alexa Siri</string>
+    <string name="report_materi">MATERI YANG PERLU DIBANTU</string>
+    <string name="report_bantuan">a, b, H, J, G</string>
+    <string name="report_waktu">WAKTU BELAJAR MINGGU INI</string>
+    <string name="S">S</string>
+    <string name="R">R</string>
+    <string name="K">K</string>
+    <string name="J">J</string>
+    <string name="M">M</string>
 
     <string name="on">on</string>
     <string name="off">off</string>
