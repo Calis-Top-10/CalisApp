@@ -78,6 +78,7 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_voice_acitivity)
+        instructionText = findViewById(R.id.textQuiz)
         buttonSpeak = findViewById(R.id.instruction)
         val continueButton = findViewById<FrameLayout>(R.id.continueButton)
 
@@ -175,8 +176,8 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
     /* Text to speech */
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            // set US English as language for tts
-            val result = tts!!.setLanguage(Locale.US)
+            // set indonesia as language
+            val result = tts!!.setLanguage(Locale.forLanguageTag("id"))
 
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS","The Language specified is not supported!")
@@ -191,6 +192,9 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
 
     /* Speech */
     private fun speakOut() {
+        if (instructionText == null){
+            Log.e("TTS", "instruction text shouldnt be null")
+        }
         val text = instructionText!!.text.toString()
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
     }
