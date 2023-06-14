@@ -19,7 +19,6 @@
     <color name="palette4">#3490DC</color>
     <color name="palette6">#38C172</color>
     <color name="palette7">#FFED4A</color>
-    <color name="palette8">#F6993F</color>
 
 
 
@@ -42,4 +41,6 @@
     <color name="palette12">#FF9C07</color>
     <color name="palette13">#76FF35</color>
     <color name="palette17">#6B5E5E</color>
+    <color name="palette8">#267F96</color>
+
 </resources>

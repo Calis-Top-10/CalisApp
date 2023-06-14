@@ -138,106 +138,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.775" />
 
-    <ImageView
-        android:id="@+id/g_image"
-        android:layout_width="0dp"
-        android:scaleType="centerCrop"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:src="@drawable/baca"
-        app:layout_constraintTop_toTopOf="@id/horizontal1"
-        app:layout_constraintEnd_toEndOf="@id/vertical6"
-        app:layout_constraintStart_toStartOf="@id/vertical3"
-        android:contentDescription="@string/app_name" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nyoba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/const_text_name"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/horizontal2"
-        app:layout_constraintStart_toStartOf="@+id/vertical1" />
-
-    <com.example.caliscapstone.ui.customview.EditTextClear
-        android:id="@+id/ed_name"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="@string/const_text_name"
-        android:inputType="number"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        android:transitionName="email"
         app:layout_constraintEnd_toStartOf="@+id/vertical8"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal2"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal3"/>
+        app:layout_constraintTop_toTopOf="@+id/horizontal1" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_user"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/const_text_age"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal4"
-        app:layout_constraintStart_toStartOf="@+id/vertical1" />
-
-    <com.example.caliscapstone.ui.customview.EditTextClear
-        android:id="@+id/ed_age"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="@string/const_text_age"
-        android:inputType="number"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        android:transitionName="email"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintEnd_toStartOf="@+id/vertical8"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal4"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal5"/>
-
-    <Button
-        android:id="@+id/g_update"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_button_ripple_6"
-        app:backgroundTint="@null"
-        android:textSize="20sp"
-        android:text="@string/update"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal11"
-        app:layout_constraintEnd_toStartOf="@+id/vertical8"
-        app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal10" />
-
-    <Button
-        android:id="@+id/g_delete"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_button_ripple_4"
-        android:text="@string/delete"
-        android:textAllCaps="false"
-        app:backgroundTint="@null"
-        android:textSize="20sp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/palette9"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal7"
-        app:layout_constraintEnd_toStartOf="@+id/vertical8"
-        app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal6" />
-
-    <Button
-        android:id="@+id/g_sign_out"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_button_ripple_5"
-        android:text="@string/signout"
-        android:textAllCaps="false"
-        app:backgroundTint="@null"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal9"
-        app:layout_constraintEnd_toStartOf="@+id/vertical8"
-        app:layout_constraintStart_toStartOf="@id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal8" />
-
+        app:layout_constraintTop_toTopOf="@+id/horizontal3"
+        tools:itemCount="3"
+        tools:listitem="@layout/rv_user" />
 </androidx.constraintlayout.widget.ConstraintLayout>

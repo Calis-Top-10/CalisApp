@@ -45,8 +45,8 @@
     <string name="login_note">Penggunaan aplikasi ini diatur oleh Persyaratan Layanan dan Kebijakan Privasi  !</string>
 
     <string name="signout">LOGOUT</string>
-    <string name="update">UPDATE AKUN</string>
-    <string name="delete">HAPUS AKUN</string>
+    <string name="update">UPDATE PROFILE ANAK</string>
+    <string name="delete">HAPUS PROFILE ANAK</string>
 
     <string name="report_progress">Progres Belajar</string>
     <string name="report_name">Alexa Siri</string>
@@ -70,9 +70,7 @@
 
     <string name="const_text_name">Nama</string>
     <string name="const_text_age">Umur</string>
-
-    <string name="UI_validation_invalid_email">Email format is invalid</string>
-    <string name="UI_validation_password_rules">Password must contain at least 6 characters</string>
+    <string name="const_text_email">Email</string>
 
     <string name="web_client_id">327782085729-eqlor5jbl9cv3c06b77np9ic8so0sl01.apps.googleusercontent.com</string>
 </resources>

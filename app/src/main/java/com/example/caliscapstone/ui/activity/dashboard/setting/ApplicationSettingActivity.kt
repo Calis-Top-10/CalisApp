@@ -8,6 +8,7 @@ import android.service.controls.ControlsProviderService
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.MutableLiveData
@@ -16,6 +17,7 @@ import com.example.caliscapstone.R
 import com.example.caliscapstone.data.api.ApiConfig
 import com.example.caliscapstone.data.model.delete.ResponseDelete
 import com.example.caliscapstone.data.model.update.UpdateResponse
+import com.example.caliscapstone.data.model.whoami.Whoami
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.ui.customview.EditTextClear
 import com.example.caliscapstone.utils.Constanta
@@ -55,14 +57,10 @@ class ApplicationSettingActivity : AppCompatActivity() {
 
         gsc = GoogleSignIn.getClient(this, gso)
 
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
 
-        if (account!=null) {
-            Glide.with(applicationContext).load(account.photoUrl).into(gImage)
-        }
-
-        else {
+        if (account == null) {
             goSignOut()
         }
 
@@ -70,8 +68,8 @@ class ApplicationSettingActivity : AppCompatActivity() {
             goSignOut()
         }
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         /* toolbar */
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener {
@@ -90,8 +88,6 @@ class ApplicationSettingActivity : AppCompatActivity() {
             getUpdateChild(updateChild)
         }
 
-
-
         val gDelete = findViewById<Button>(R.id.g_delete)
         gDelete.setOnClickListener {
 
@@ -99,6 +95,7 @@ class ApplicationSettingActivity : AppCompatActivity() {
             val deleteChild = ResponseDelete(childId)
             getUserDelete(deleteChild)
         }
+        getAccount()
 
     }
 
@@ -111,15 +108,18 @@ class ApplicationSettingActivity : AppCompatActivity() {
 
     private fun getUpdateChild(updateChild: UpdateResponse) {
 
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
         val idToken = account?.idToken
         val addResult = MutableLiveData<UpdateResponse>()
         val error = MutableLiveData("")
 
-        val client = ApiConfig.getApiService().getUpdateChild("Bearer $idToken", updateChild )
+        val client = ApiConfig.getApiService().getUpdateChild("Bearer $idToken", updateChild)
         client.enqueue(object : Callback<UpdateResponse> {
-            override fun onResponse(call: Call<UpdateResponse>, response: Response<UpdateResponse>) {
+            override fun onResponse(
+                call: Call<UpdateResponse>,
+                response: Response<UpdateResponse>
+            ) {
                 if (response.isSuccessful) {
                     addResult.postValue(response.body())
                     Log.d("Update Account", response.body().toString())
@@ -140,7 +140,7 @@ class ApplicationSettingActivity : AppCompatActivity() {
     }
 
     private fun getUserDelete(deleteChild: ResponseDelete) {
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
         val idToken = account?.idToken
         if (idToken != null) {
@@ -161,6 +161,45 @@ class ApplicationSettingActivity : AppCompatActivity() {
 
                     @RequiresApi(Build.VERSION_CODES.R)
                     override fun onFailure(call: Call<ResponseDelete>, t: Throwable) {
+                        Log.e(ControlsProviderService.TAG, "onFailure: ${t.message}")
+                    }
+
+                })
+        }
+    }
+
+    private fun getAccount() {
+        val gName = findViewById<TextView>(R.id.g_a_name)
+        val gEmail = findViewById<TextView>(R.id.g_a_email)
+        val gPhoto = findViewById<ImageView>(R.id.g_a_image)
+        val account: GoogleSignInAccount? = GoogleSignIn
+            .getLastSignedInAccount(this)
+        val idToken = account?.idToken
+        if (idToken != null) {
+            ApiConfig.getApiService()
+                .getWhoami("Bearer $idToken")
+                .enqueue(object : Callback<Whoami> {
+                    override fun onResponse(
+                        call: Call<Whoami>,
+                        response: Response<Whoami>
+                    ) {
+                        try {
+                            gName.text = response.body()!!.name
+                            gEmail.text = response.body()!!.user
+                            Glide.with(this@ApplicationSettingActivity)
+                                .load(response.body()!!.picture)
+                                .centerCrop()
+                                .dontAnimate()
+                                .into(gPhoto)
+                            Log.d("UserName", gName.toString())
+                            Log.d("User_Email", gEmail.toString())
+                        } catch (ex: java.lang.Exception) {
+                            ex.printStackTrace()
+                        }
+                    }
+
+                    @RequiresApi(Build.VERSION_CODES.R)
+                    override fun onFailure(call: Call<Whoami>, t: Throwable) {
                         Log.e(ControlsProviderService.TAG, "onFailure: ${t.message}")
                     }
 

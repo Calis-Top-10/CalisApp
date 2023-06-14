@@ -7,6 +7,7 @@ import android.service.controls.ControlsProviderService
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caliscapstone.R
@@ -51,6 +52,14 @@ class HomeLessonActivity : AppCompatActivity() {
 
         if (account == null) {
             goSignOut()
+        }
+
+        /* toolbar */
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
         }
 
         val type: String = (intent.getStringExtra("read_hover")

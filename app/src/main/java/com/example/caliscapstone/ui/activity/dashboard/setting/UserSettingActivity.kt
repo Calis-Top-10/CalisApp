@@ -18,8 +18,8 @@ import com.example.caliscapstone.R
 import com.example.caliscapstone.data.api.ApiConfig
 import com.example.caliscapstone.data.model.get_lesson.Lesson
 import com.example.caliscapstone.data.model.login.Children
+import com.example.caliscapstone.data.model.login.RandomUuidValue
 import com.example.caliscapstone.data.model.login.ResponseLogin
-import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonAdapter
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeQuestionActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -28,23 +28,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class UserSettingActivity : AppCompatActivity() {
-
-    private lateinit var gImage: ImageView
-    private lateinit var gSignOut: Button
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_setting)
-
-        gImage = findViewById(R.id.g_image)
-        gSignOut = findViewById(R.id.g_sign_out)
 
         val serverClientId = getString(R.string.web_client_id)
 
@@ -57,21 +52,12 @@ class UserSettingActivity : AppCompatActivity() {
 
         gsc = GoogleSignIn.getClient(this, gso)
 
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
 
-        if (account!=null) {
-            Glide.with(applicationContext).load(account.photoUrl).into(gImage)
-        }
-
-        else {
+        if (account == null) {
             goSignOut()
         }
-
-        gSignOut.setOnClickListener {
-            goSignOut()
-        }
-
 
         getUserLogin()
 
@@ -83,9 +69,12 @@ class UserSettingActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun getUserLogin() {
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_user)
+        recyclerView.layoutManager = LinearLayoutManager(this@UserSettingActivity)
         var children: ResponseLogin
-        val account: GoogleSignInAccount?= GoogleSignIn
+        val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
         val idToken = account?.idToken
         if (idToken != null) {
@@ -99,8 +88,28 @@ class UserSettingActivity : AppCompatActivity() {
                         try {
                             val responseBody = response.body()!!
                             children = responseBody
-                            Log.e("UserAccount", children.toString())
+                            var childrenValue: RandomUuidValue
+                            Log.d("UserAccount", children.toString())
                             /*
+                            children.children.forEach {
+                                // entry ->  "${entry.key} : ${entry.value}"
+                                    entry ->
+                                childrenValue = entry.value
+                                val adapter = UserAdapter(childrenValue, object : UserAdapter.OnAdapterListener {
+                                    override fun onItemClicked(data: Lesson) {
+                                        // Toast.makeText(applicationContext, data.lessonType, Toast.LENGTH_SHORT).show()
+                                        startActivity(Intent(this@HomeLessonActivity, HomeQuestionActivity::class.java)
+                                            .putExtra("intent_id", data.lessonId)
+                                            .putExtra("intent_level", data.lessonLevel.toString())
+                                            .putExtra("intent_type", data.lessonType)
+                                            .putExtra("intent_question", data.questions)
+                                        )
+                                        finish()
+                                    }
+                                })
+                                Log.d("dataChildren", dataChildren)
+                            }
+
                             val adapter = UserSettingAdapter(children, object : UserSettingAdapter.OnAdapterListener {
                             })
                             recyclerView.adapter = adapter

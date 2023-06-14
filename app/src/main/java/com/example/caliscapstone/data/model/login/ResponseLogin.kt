@@ -1,7 +1,7 @@
 package com.example.caliscapstone.data.model.login
 
 data class ResponseLogin(
-    val children: Children,
+    val children: Map<String, RandomUuidValue>,
     val createdAt: String,
     val email: String
 )
