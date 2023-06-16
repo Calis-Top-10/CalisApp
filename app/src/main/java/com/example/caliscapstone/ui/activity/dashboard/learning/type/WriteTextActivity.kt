@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.ViewTreeObserver
 import android.widget.ImageView
@@ -18,6 +19,8 @@ import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivi
 import com.example.caliscapstone.tflite.CalisCharacterClassifier
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
+import com.example.caliscapstone.utils.question.QuestionHelper
+import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -32,14 +35,26 @@ class WriteTextActivity : AppCompatActivity() {
     private lateinit var sizeDialog: Dialog
 
     private lateinit var calisCharacterClassifier: CalisCharacterClassifier
+    private val isCorrects = arrayListOf<Boolean>()
+    private lateinit var tts: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_text)
+
+        calisCharacterClassifier = CalisCharacterClassifier(assets)
+
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
-        calisCharacterClassifier = CalisCharacterClassifier(assets)
+        tts = TTSHelper.createTTS(this)
+
+        // Speak the instruction
+        val runnable = Runnable {
+            TTSHelper.speakTTS(tts, "Tulis huruf yang ada di dalam kotak!")
+        }
+        val handler = android.os.Handler()
+        handler.postDelayed(runnable, 500)
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
@@ -71,10 +86,10 @@ class WriteTextActivity : AppCompatActivity() {
         progressBarHorizontal.progress = progressBarValue
 
         /* Qyestion Box */
-        val questionList = intent.getSerializableExtra("intent_question") as Question
+        val question = intent.getSerializableExtra("intent_question") as Question
         val questionBox = findViewById<TextView>(R.id.textQuiz)
-        questionBox.text = questionList.questionDetails.question
-        Log.d("testIndex", questionList.toString())
+        questionBox.text = question.questionDetails.question
+        Log.d("testIndex", question.toString())
 
         /* Writing Box */
         paint = findViewById(R.id.draw_view)
@@ -111,20 +126,22 @@ class WriteTextActivity : AppCompatActivity() {
 
         /* Save Button */
         saveBtn.setOnClickListener {
-            if (paint.isTouch()) {
-                val isCorrect = calisCharacterClassifier.isAnswersCorrect(
-                    // TODO: Feed the expectedAnswers from the question
-                    paint.drawToBitmap(Bitmap.Config.ARGB_8888), arrayListOf<String>("A", "0"))
-                if (isCorrect) {
-                    Toast.makeText(this@WriteTextActivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
-                }
-                else {
-                    Toast.makeText(this@WriteTextActivity, "Jawaban Salah!!", Toast.LENGTH_LONG).show()
-                }
-            } else {
+            if (!paint.isTouch()) {
                 Toast.makeText(this@WriteTextActivity, "Jawaban Kosong!!", Toast.LENGTH_LONG).show()
             }
-            finish()
+
+            val isCorrect = calisCharacterClassifier.isAnswersCorrect(
+                paint.drawToBitmap(Bitmap.Config.ARGB_8888), question.questionDetails.answer)
+
+            isCorrects.add(isCorrect)
+
+            if (isCorrect) {
+                QuestionHelper.setLearningProgressResultAndFinish(this, isCorrects, question.questionId, tts)
+            }
+            else {
+                paint.clear()
+                TTSHelper.speakTTS(tts, "Coba lagi!")
+            }
         }
     }
 

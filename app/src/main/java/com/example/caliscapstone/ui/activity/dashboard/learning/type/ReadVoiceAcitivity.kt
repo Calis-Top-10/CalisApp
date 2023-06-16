@@ -24,19 +24,17 @@ import com.example.caliscapstone.data.model.get_lesson.QuestionDetails
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.tflite.CalisManualAudioClassifier
 import com.example.caliscapstone.ui.activity.login.LoginActivity
-import com.example.caliscapstone.utils.sound.playback.AndroidAudioPlayer
-import com.example.caliscapstone.utils.sound.record.AndroidAudioRecorder
+import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
-import java.io.File
 import java.util.Locale
 
 
-class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
+class ReadVoiceAcitivity : AppCompatActivity()   {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
     private var tts: TextToSpeech? = null
@@ -82,6 +80,8 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         buttonSpeak = findViewById(R.id.instruction)
         val continueButton = findViewById<FrameLayout>(R.id.continueButton)
 
+        tts = TTSHelper.createTTS(this)
+
         /* Audio classifier */
         initAudioRecord()
         calisAudioClassifier = CalisManualAudioClassifier(assets)
@@ -123,7 +123,6 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
 
         /* Text To Speech quiz */
         buttonSpeak!!.isEnabled = false;
-        tts = TextToSpeech(this, this)
         buttonSpeak!!.setOnClickListener { speakOut() }
 
         ActivityCompat.requestPermissions(
@@ -133,7 +132,7 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         )
         /* Text To Speech quiz */
         val startRecord = findViewById<ImageView>(R.id.buttonOn)
-        val endRecord = findViewById<ImageView>(R.id.buttonOff)
+        val endRecord = findViewById<ImageView>(R.id.speakQuestion)
         startRecord.visibility = View.GONE
         endRecord.visibility = View.VISIBLE
 
@@ -170,23 +169,6 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         gsc.signOut().addOnSuccessListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        }
-    }
-
-    /* Text to speech */
-    override fun onInit(status: Int) {
-        if (status == TextToSpeech.SUCCESS) {
-            // set indonesia as language
-            val result = tts!!.setLanguage(Locale.forLanguageTag("id"))
-
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Log.e("TTS","The Language specified is not supported!")
-            } else {
-                buttonSpeak!!.isEnabled = true
-            }
-
-        } else {
-            Log.e("TTS", "Initilization Failed!")
         }
     }
 

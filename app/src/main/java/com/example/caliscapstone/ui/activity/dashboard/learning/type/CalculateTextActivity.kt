@@ -2,19 +2,25 @@ package com.example.caliscapstone.ui.activity.dashboard.learning.type
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.drawToBitmap
 import com.example.caliscapstone.R
 import com.example.caliscapstone.data.model.get_lesson.Question
+import com.example.caliscapstone.tflite.CalisCharacterClassifier
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
+import com.example.caliscapstone.utils.question.QuestionHelper
+import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -27,9 +33,18 @@ class CalculateTextActivity : AppCompatActivity() {
     private lateinit var gsc: GoogleSignInClient
     private lateinit var paint: DrawView
     private lateinit var sizeDialog: Dialog
+
+    private lateinit var calisCharacterClassifier: CalisCharacterClassifier
+    private val isCorrects = arrayListOf<Boolean>()
+    private lateinit var tts: TextToSpeech
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculate_text)
+
+        calisCharacterClassifier = CalisCharacterClassifier(assets)
+        tts = TTSHelper.createTTS(this)
+
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
@@ -66,6 +81,7 @@ class CalculateTextActivity : AppCompatActivity() {
         progressBarHorizontal.progress = progressBarValue
 
         /* Qyestion Box */
+        val question = intent.getSerializableExtra("intent_question") as Question
         val questionList = intent.getSerializableExtra("intent_question") as Question
         val questionBox = findViewById<TextView>(R.id.textQuiz)
         questionBox.text = questionList.questionDetails.question
@@ -106,12 +122,22 @@ class CalculateTextActivity : AppCompatActivity() {
 
         /* Save Button */
         saveBtn.setOnClickListener {
-            if (paint.isTouch()) {
-                Toast.makeText(this@CalculateTextActivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
-            }else{
+            if (!paint.isTouch()) {
                 Toast.makeText(this@CalculateTextActivity, "Jawaban Kosong!!", Toast.LENGTH_LONG).show()
             }
-            finish()
+
+            val isCorrect = calisCharacterClassifier.isAnswersCorrect(
+                paint.drawToBitmap(Bitmap.Config.ARGB_8888), question.questionDetails.answer)
+
+            isCorrects.add(isCorrect)
+
+            if (isCorrect) {
+                QuestionHelper.setLearningProgressResultAndFinish(this, isCorrects, question.questionId, tts)
+            }
+            else {
+                paint.clear()
+                TTSHelper.speakTTS(tts, "Coba lagi!")
+            }
         }
     }
     private fun goSignOut() {
