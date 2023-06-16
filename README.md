@@ -28,25 +28,18 @@ To build and run the Hidup Sehat Android application, ensure you have the follow
 - Android Gradle Plugin: 8.0.0
 - Gradle: 8.0
   
+# calis
+- Sign in : To experience learning in Calis, user can just simply login with their Google Account. Google Sign-In automatically detects and authenticates user activity in the application.
 
-## Sign in
-To experience learning in Calis, user can just simply login with their Google Account. Google Sign-In automatically detects and authenticates user activity in the application.
+- Add Profile : Allow users to create individual profiles with customizable settings and progress tracking where one Google account can be linked to multiple child profiles. In creating a profile, the user needs to input the child's name and age. 
 
-## Add Profile
-Allow users to create individual profiles with customizable settings and progress tracking where one Google account can be linked to multiple child profiles. In creating a profile, the user needs to input the child's name and age. 
+- Read Lessone : At the beginner stage, the lesson is the alphabet. At the intermediate level, lessons are in the form of words and sentences for the advanced stage. When the application will display the alphabet, and the user will read the lesson. The application provides instructions to the user via a question mark at the top right. To submit an answer, the user will press the microphone button and say the answer, then the application will check the answer.
 
-## Read Lesson
-At the beginner stage, the lesson is the alphabet. At the intermediate level, lessons are in the form of words and sentences for the advanced stage. When the application will display the alphabet, and the user will read the lesson. The application provides instructions to the user via a question mark at the top right. To submit an answer, the user will press the microphone button and say the answer, then the application will check the answer.
+- Write Lesson : The beginner stage is about writing the alphabet, the intermediate stage is about writing words, and the advanced stage is writing sentences. The application detects the user's handwriting through the handwriting results. To submit an answer, the user will write the answer in the canvas box, then the application will check the answer. Currently, we have implemented beginner stage, we plan to continue intermediate and advanced stage in the future.
 
-## Write Lesson
-The beginner stage is about writing the alphabet, the intermediate stage is about writing words, and the advanced stage is writing sentences. The application detects the user's handwriting through the handwriting results. To submit an answer, the user will write the answer in the canvas box, then the application will check the answer. Currently, we have implemented beginner stage, we plan to continue intermediate and advanced stage in the future.
+- Counting Lesson : At the beginner stage, the application introduces children to numbers. There will be number sound and user will write number like writing lesson. At an intermediate stage, the application displays addition and subtraction using pictures. In the advanced stage, numbers will be used instead of pictures. To submit an answer, the user will write the answer in the canvas box, then the application will check the answer. 
 
-## Counting Lesson
-At the beginner stage, the application introduces children to numbers. There will be number sound and user will write number like writing lesson. At an intermediate stage, the application displays addition and subtraction using pictures. In the advanced stage, numbers will be used instead of pictures. To submit an answer, the user will write the answer in the canvas box, then the application will check the answer. 
+- Report Progress Tracking : Provide users with a visual representation of their progress, user activity in the past week, and failed lessons for improvement. Every user learning will be recorded and saved on our cloud. This report is dedicated to the children’s parents.
 
-## Report Progress Tracking 
-Provide users with a visual representation of their progress, user activity in the past week, and failed lessons for improvement. Every user learning will be recorded and saved on our cloud. This report is dedicated to the children’s parents.
-
-## Personalized Learning
-Offer adaptive learning experiences that adjust difficulty levels based on users performance and learning pace. If the child answers a question wrong, similar questions will appear in the Pengayaan section. With this, the child will focus on improving their weaknesses
+- Personalized Learning : Offer adaptive learning experiences that adjust difficulty levels based on users performance and learning pace. If the child answers a question wrong, similar questions will appear in the Pengayaan section. With this, the child will focus on improving their weaknesses
 
