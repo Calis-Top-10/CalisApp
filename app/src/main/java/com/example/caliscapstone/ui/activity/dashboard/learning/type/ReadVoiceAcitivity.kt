@@ -22,7 +22,6 @@ import com.example.caliscapstone.R
 import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.data.model.get_lesson.QuestionDetails
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
-import com.example.caliscapstone.tflite.CalisManualAudioClassifier
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -31,7 +30,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
-import java.util.Locale
 
 
 class ReadVoiceAcitivity : AppCompatActivity()   {
@@ -41,8 +39,6 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
     private var buttonSpeak: ImageView? = null
     private var instructionText: TextView? = null
     private lateinit var questionList: QuestionDetails
-
-    private lateinit var calisAudioClassifier: CalisManualAudioClassifier;
 
     // Audio Interface
     private lateinit var audioRecord: AudioRecord
@@ -84,7 +80,6 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
 
         /* Audio classifier */
         initAudioRecord()
-        calisAudioClassifier = CalisManualAudioClassifier(assets)
 
         /* Backward Navigation */
         val backwardPage = findViewById<ImageView>(R.id.backward)
@@ -131,29 +126,25 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
             0
         )
         /* Text To Speech quiz */
-        val startRecord = findViewById<ImageView>(R.id.buttonOn)
-        val endRecord = findViewById<ImageView>(R.id.speakQuestion)
-        startRecord.visibility = View.GONE
-        endRecord.visibility = View.VISIBLE
+        val stopRecord = findViewById<ImageView>(R.id.buttonOn)
+        val startRecord = findViewById<ImageView>(R.id.speakQuestion)
+        stopRecord.visibility = View.GONE
+        startRecord.visibility = View.VISIBLE
 
         /* Audio recorder */
-        startRecord.setOnClickListener {
-            Log.d("STARTRECORD", "Start record clicked")
-            // FIXME: endRecord is is clicked instead of this startRecord
-            audioRecord.startRecording()
-            Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca !", Toast.LENGTH_SHORT).show()
-            startRecord.visibility = View.GONE
-            endRecord.visibility = View.VISIBLE
+        stopRecord.setOnClickListener {
+            Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca!", Toast.LENGTH_SHORT).show()
+            stopRecord.visibility = View.GONE
+            startRecord.visibility = View.VISIBLE
         }
 
-        endRecord.setOnClickListener {
-            audioRecord.stop()
-            calisAudioClassifier.isAnswerCorrect(audioRecord, "muak")
+        startRecord.setOnClickListener {
             Toast.makeText(this@ReadVoiceAcitivity, "Mulai membaca !", Toast.LENGTH_SHORT).show()
-            startRecord.visibility = View.VISIBLE
-            endRecord.visibility = View.GONE
+            stopRecord.visibility = View.VISIBLE
+            startRecord.visibility = View.GONE
             // TODO: Call the function below to release resources
             // audioRecord.release()
+            // TODO: Add SpeechRecognition API
         }
 
         continueButton.setOnClickListener {

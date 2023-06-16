@@ -97,16 +97,19 @@ class HomeActivity : AppCompatActivity() {
         readPage.setOnClickListener {
             intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
                 .putExtra("read_hover", "baca")
+                .putExtra("intent_uuid", intentId)
             startActivity(intent)
         }
         writePage.setOnClickListener {
             intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
                 .putExtra("write_hover", "tulis")
+                .putExtra("intent_uuid", intentId)
             startActivity(intent)
         }
         calculatePage.setOnClickListener {
             intent = Intent(this@HomeActivity, HomeLessonActivity::class.java)
                 .putExtra("calculate_hover", "hitung")
+                .putExtra("intent_uuid", intentId)
             startActivity(intent)
         }
         reportPage.setOnClickListener {
