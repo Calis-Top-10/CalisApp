@@ -2,34 +2,52 @@ package com.example.caliscapstone.ui.activity.dashboard.learning.type
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.core.view.drawToBitmap
 import com.example.caliscapstone.R
+import com.example.caliscapstone.data.model.get_lesson.Question
+import com.example.caliscapstone.tflite.CalisCharacterClassifier
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
+import com.example.caliscapstone.utils.question.QuestionHelper
+import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
+import java.util.Locale
 
 class WriteVoiceAcitivity : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
     private lateinit var paint: DrawView
     private lateinit var sizeDialog: Dialog
+    private lateinit var tts: TextToSpeech
+
+    private lateinit var calisCharacterClassifier: CalisCharacterClassifier
+    private val isCorrects = arrayListOf<Boolean>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_voice_acitivity)
+        calisCharacterClassifier = CalisCharacterClassifier(assets)
+        tts = TTSHelper.createTTS(this)
+
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
+        val speakBtn = findViewById<ImageView>(R.id.speakQuestion)
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
@@ -54,6 +72,9 @@ class WriteVoiceAcitivity : AppCompatActivity() {
                 .putExtra("write_hover", "tulis")
             startActivity(intent)
         }
+
+        /* Question */
+        val question = intent.getSerializableExtra("intent_question") as Question
 
         /* Progress Bar Value */
         val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
@@ -93,14 +114,33 @@ class WriteVoiceAcitivity : AppCompatActivity() {
             }
         }
 
+        speakBtn.setOnClickListener {
+            val textToSpeak = if (question.questionDetails.question!![0].isDigit()) {
+                "Tulis angka " + question.questionDetails.question!!
+            } else {
+                "Tulis huruf " + question.questionDetails.question!!
+            }
+            TTSHelper.speakTTS(tts, textToSpeak)
+        }
+
         /* Save Button */
         saveBtn.setOnClickListener {
-            if (paint.isTouch()) {
-                Toast.makeText(this@WriteVoiceAcitivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
-            }else{
-                Toast.makeText(this@WriteVoiceAcitivity, "Jawaban Kosong!!", Toast.LENGTH_LONG).show()
+            if (!paint.isTouch()) {
+                Toast.makeText(this@WriteVoiceAcitivity, "Jawaban Kosong!", Toast.LENGTH_LONG).show()
             }
-            finish()
+
+            val isCorrect = calisCharacterClassifier.isAnswersCorrect(
+                paint.drawToBitmap(Bitmap.Config.ARGB_8888), question.questionDetails.answer)
+
+            isCorrects.add(isCorrect)
+
+            if (isCorrect) {
+                QuestionHelper.setLearningProgressResultAndFinish(this, isCorrects, question.questionId, tts)
+            }
+            else {
+                paint.clear()
+                TTSHelper.speakTTS(tts, "Coba lagi!")
+            }
         }
     }
 
@@ -112,4 +152,12 @@ class WriteVoiceAcitivity : AppCompatActivity() {
         }
     }
 
+
+    /* Destroy Speech */
+    public override fun onDestroy() {
+        // Shutdown TTS
+        tts.stop()
+        tts.shutdown()
+        super.onDestroy()
+    }
 }

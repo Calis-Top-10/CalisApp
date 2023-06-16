@@ -5,6 +5,7 @@ import com.example.caliscapstone.data.model.delete.ResponseDelete
 import com.example.caliscapstone.data.model.get_lesson.ResponseRead
 import com.example.caliscapstone.data.model.login.Children
 import com.example.caliscapstone.data.model.login.RandomUuidValue
+import com.example.caliscapstone.data.model.learningProgress.AddUserLearning
 import com.example.caliscapstone.data.model.login.ResponseLogin
 import com.example.caliscapstone.data.model.pengayaan.ResponsePengayaan
 import com.example.caliscapstone.data.model.report.UserReport
@@ -47,6 +48,13 @@ interface Api {
         @Header("Authorization") token: String,
         @Body postModel: AddChildren
     ): Call<AddChildren>
+
+    @Headers("Content-Type: application/json")
+    @POST("updateUserLearning")
+    fun doAddLearningProgress(
+        @Header("Authorization") token: String,
+        @Body postModel: AddUserLearning
+    ): Call<AddUserLearning>
 
     @GET("login")
     fun getLogin(

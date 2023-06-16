@@ -3,7 +3,7 @@ package com.example.caliscapstone.data.model.get_lesson
 import java.io.Serializable
 
 data class QuestionDetails(
-    val answer: List<String> ?=null,
+    val answer: List<String>,
     val feedback_img: String?=null,
     val question: String ?=null,
     val tags: List<String>?=null,

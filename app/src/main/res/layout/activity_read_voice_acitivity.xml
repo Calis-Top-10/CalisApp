@@ -188,7 +188,7 @@
         android:contentDescription="@string/on" />
 
     <ImageView
-        android:id="@+id/buttonOff"
+        android:id="@+id/speakQuestion"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/baseline_mic_24"
