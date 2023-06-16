@@ -43,4 +43,20 @@ To build and run the Hidup Sehat Android application, ensure you have the follow
 
 - Personalized Learning : Offer adaptive learning experiences that adjust difficulty levels based on users performance and learning pace. If the child answers a question wrong, similar questions will appear in the Pengayaan section. With this, the child will focus on improving their weaknesses
 
-![Home](https://github.com/Calis-Top-10/CalisApp/assets/107051384/e69d4757-0dfb-4549-9669-2deea735832a)
+# Screenshots
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/259129d1-e5dc-4f3f-9bca-e746c5220580" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/bd569aca-6b6b-4ff6-9cd1-722376bb29b3" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/fd2ee2b5-e7e1-4027-a1d1-1501e04c4739" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/0c839a0f-156e-4c9f-81bf-0c3a9b0a50f4" width="200" />
+
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/2dffca6d-6878-4b4e-af03-556eb7f86a69" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/248b4021-3c87-47c7-a5c5-08a49c45e922" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/37c867c1-1a1e-4eef-a527-bb14ccddf1f9" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/4595042e-8923-4668-a351-781f0ea2450c" width="200" />
+
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/20f6cd12-7639-402e-ae00-b8496638844d" width="200" />
+
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/546b5023-a9b9-4213-8942-23b212351280" width="200" />
+<img src="https://github.com/Calis-Top-10/CalisApp/assets/107051384/282f0976-f901-4007-a8d2-70392d4f87a7" width="200" />
+
+
