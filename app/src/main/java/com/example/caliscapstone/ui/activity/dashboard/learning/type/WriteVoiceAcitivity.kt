@@ -51,7 +51,7 @@ class WriteVoiceAcitivity : AppCompatActivity() {
         val backwardPage = findViewById<ImageView>(R.id.backward)
         backwardPage?.setOnClickListener {
             intent = Intent(this@WriteVoiceAcitivity, HomeLessonActivity::class.java)
-                .putExtra("write_hover", "hitung")
+                .putExtra("write_hover", "tulis")
             startActivity(intent)
         }
 
