@@ -11,7 +11,7 @@ Navigate to the directory where you want to clone the repository. You can use th
 ```
 cd Documents
 ```
-Use the **git clone command** followed by the URL you copied
+Use the **git clone command** followed by the URL you copied.
 ```
 git clone https://github.com/Calis-Top-10/CalisApp.git
 ```
