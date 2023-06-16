@@ -4,7 +4,9 @@ import com.example.caliscapstone.data.model.add_children.AddChildren
 import com.example.caliscapstone.data.model.delete.ResponseDelete
 import com.example.caliscapstone.data.model.get_lesson.ResponseRead
 import com.example.caliscapstone.data.model.login.Children
+import com.example.caliscapstone.data.model.login.RandomUuidValue
 import com.example.caliscapstone.data.model.login.ResponseLogin
+import com.example.caliscapstone.data.model.pengayaan.ResponsePengayaan
 import com.example.caliscapstone.data.model.report.UserReport
 import com.example.caliscapstone.data.model.update.UpdateResponse
 import com.example.caliscapstone.data.model.whoami.Whoami
@@ -22,12 +24,22 @@ interface Api {
     fun getWhoami(
         @Header("Authorization") token: String,
     ) : Call<Whoami>
-
     @GET("getLessonsByType")
     fun getLessons(
         @Header("Authorization") token: String,
         @Query("lessonType") type: String
     ) : Call<ResponseRead>
+    @GET("getChildById")
+    fun getChildren(
+        @Header("Authorization") token: String,
+        @Query("childId") childId: String
+    ) : Call<RandomUuidValue>
+
+    @GET("personalLesson")
+    fun getpersonalLesson(
+        @Header("Authorization") token: String,
+        @Query("childId") childId: String
+    ) : Call<ResponsePengayaan>
 
     @Headers("Content-Type: application/json")
     @POST("addChildren")

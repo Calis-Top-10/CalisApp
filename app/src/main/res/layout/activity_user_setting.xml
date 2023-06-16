@@ -138,23 +138,79 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.775" />
 
-    <TextView
-        android:id="@+id/nyoba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal2"
-        app:layout_constraintEnd_toStartOf="@+id/vertical8"
-        app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal1" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="false"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal11"
         app:layout_constraintEnd_toStartOf="@+id/vertical8"
         app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintTop_toTopOf="@+id/horizontal3"
-        tools:itemCount="3"
-        tools:listitem="@layout/rv_user" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            tools:itemCount="3"
+            tools:listitem="@layout/rv_user" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <FrameLayout
+        android:id="@+id/addButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/custom_button_ripple_6"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal9"
+        app:layout_constraintEnd_toStartOf="@+id/vertical8"
+        app:layout_constraintStart_toStartOf="@+id/vertical1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/palette8"
+                android:text="@string/add_data"/>
+
+            <ImageView
+                android:id="@+id/continueTesting"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/icon_add"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/vertical4"
+                app:layout_constraintStart_toStartOf="@id/vertical3"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/custom_button_11"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_anim" />
 </androidx.constraintlayout.widget.ConstraintLayout>

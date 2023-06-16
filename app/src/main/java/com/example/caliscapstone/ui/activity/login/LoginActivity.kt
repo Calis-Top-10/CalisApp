@@ -4,11 +4,15 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.example.caliscapstone.R
 import com.example.caliscapstone.ui.activity.adduser.AddUserActivity
+import com.example.caliscapstone.ui.activity.dashboard.home.HomeActivity
+import com.example.caliscapstone.ui.activity.dashboard.setting.UserSettingActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -29,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         googleSignIn = findViewById(R.id.google_sign_in)
 
         val serverClientId = getString(R.string.web_client_id)
@@ -108,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
-        val intent = Intent(this, AddUserActivity::class.java)
+        val intent = Intent(this, UserSettingActivity::class.java)
         startActivity(intent)
 
         finish()

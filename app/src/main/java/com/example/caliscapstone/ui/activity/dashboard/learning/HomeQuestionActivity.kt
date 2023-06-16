@@ -37,17 +37,6 @@ class HomeQuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_question)
-        /*
-        val tvId: TextView = findViewById(R.id.lesson_id)
-        val tvLevel: TextView = findViewById(R.id.lesson_level)
-        val tvLesson: TextView = findViewById(R.id.lesson_name)
-        tvId.text = intent.getStringExtra("intent_id")
-        tvLevel.text = intent.getStringExtra("intent_level")
-        tvLesson.text = intent.getStringExtra("intent_type")
-        print(intent.getSerializableExtra("intent_question").toString())
-        Log.d("ResponseQuestion", intent.getSerializableExtra("intent_question").toString())
-         */
-
         questionList = intent.getSerializableExtra("intent_question") as ArrayList<Question>
         launchNextIntent()
 

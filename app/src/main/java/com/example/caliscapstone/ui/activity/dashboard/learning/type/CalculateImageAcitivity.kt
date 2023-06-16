@@ -4,13 +4,15 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.caliscapstone.R
+import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
-import com.example.caliscapstone.ui.activity.dashboard.learning.HomeQuestionActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
 import com.example.caliscapstone.utils.draw.DrawView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -31,6 +33,7 @@ class CalculateImageAcitivity : AppCompatActivity() {
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
+        val imageView = findViewById<ImageView>(R.id.instruction)
 
         val serverClientId = getString(R.string.web_client_id)
 
@@ -62,6 +65,16 @@ class CalculateImageAcitivity : AppCompatActivity() {
         val progressBarValue =  intent.getIntExtra("progrees_bar_value", 0)
         val progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBar)
         progressBarHorizontal.progress = progressBarValue
+
+        /* Qyestion Box */
+        val questionList = intent.getSerializableExtra("intent_question") as Question
+        val questionImage = questionList.questionDetails.question_img
+        Log.d("questionList", questionList.toString())
+        Glide.with(this@CalculateImageAcitivity)
+            .load(questionImage)
+            .centerCrop()
+            .dontAnimate()
+            .into(imageView)
 
         /* Writing Box */
         paint = findViewById(R.id.draw_view)

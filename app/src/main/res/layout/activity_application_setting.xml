@@ -250,7 +250,7 @@
                 android:layout_height="150dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/baca" />
+                android:src="@drawable/google" />
 
             <TextView
                 android:id="@+id/g_a_name"
@@ -259,7 +259,7 @@
                 android:layout_marginVertical="15dp"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
-                tools:text="@string/const_text_name"/>
+                android:text="@string/const_text_name"/>
 
             <TextView
                 android:id="@+id/g_a_email"
@@ -267,7 +267,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:layout_gravity="center_horizontal"
-                tools:text="@string/const_text_email"/>
+                android:text="@string/const_text_email"/>
 
             <Button
                 android:id="@+id/g_sign_out"
@@ -283,4 +283,18 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/custom_button_11"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_anim" />
 </androidx.constraintlayout.widget.ConstraintLayout>

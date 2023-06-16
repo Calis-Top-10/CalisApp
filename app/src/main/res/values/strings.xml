@@ -11,12 +11,13 @@
     <string name="lanjut">LANJUT</string>
 
     <string name="subscription">Menu Subscription</string>
-    <string name="user">Menu User</string>
+    <string name="user">Menu Profile</string>
     <string name="backward">Menu Backward</string>
     <string name="settings">Menu Settings</string>
     <string name="report">Menu Progress</string>
     <string name="library">Menu Library</string>
     <string name="level">Level Pembelajaran</string>
+
 
     <string name="a">a</string>
     <string name="A">A</string>
@@ -42,11 +43,30 @@
     <string name="menulis">MENULIS</string>
     <string name="menghitung">MENGHITUNG</string>
     <string name="progress">PROGRES</string>
+    <string name="pengayaan">PENGAYAAN</string>
     <string name="login_note">Penggunaan aplikasi ini diatur oleh Persyaratan Layanan dan Kebijakan Privasi  !</string>
 
+    <string name="API_error_header_token">Token anda telah habis, silahkan login kembali untuk memperbaharui token anda !</string>
+    <string name="API_error_large_payload">Your image exceeds the maximum limit of 1 MB file, please change the image</string>
+
+    <string name="add_data">TAMBAH PROFILE</string>
+    <string name="renewtoken">PERBAHARUI TOKEN</string>
     <string name="signout">LOGOUT</string>
+    <string name="areyousure">Apakah anda yakin ingin keluar ?</string>
+    <string name="const_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="ok">OK</string>
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
     <string name="update">UPDATE PROFILE ANAK</string>
+    <string name="update_title">UPDATE</string>
+    <string name="update_subtitle">Perbaharuan profile anak berhasil dilakukan</string>
     <string name="delete">HAPUS PROFILE ANAK</string>
+
+    <string name="description_1">Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level dasar</string>
+    <string name="description_2">Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level menengah</string>
+    <string name="description_3">Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level menengah</string>
+    <string name="description_4">Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level sulit</string>
+    <string name="description_5">Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level expert</string>
 
     <string name="report_progress">Progres Belajar</string>
     <string name="report_name">Alexa Siri</string>
@@ -73,4 +93,10 @@
     <string name="const_text_email">Email</string>
 
     <string name="web_client_id">327782085729-eqlor5jbl9cv3c06b77np9ic8so0sl01.apps.googleusercontent.com</string>
+
+
+    <string name="button">click button</string>
+    <string name="dialogTitle">Hapus Profile</string>
+    <string name="dialogMessage">Apakah anda yakin untuk menghapus profile anak ini ?</string>
+
 </resources>

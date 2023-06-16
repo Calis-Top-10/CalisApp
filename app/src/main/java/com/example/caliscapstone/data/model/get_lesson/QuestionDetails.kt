@@ -7,5 +7,6 @@ data class QuestionDetails(
     val feedback_img: String?=null,
     val question: String ?=null,
     val tags: List<String>?=null,
-    val hint: String?=null
+    val hint: String?=null,
+    val question_img: String?=null
 ) : Serializable

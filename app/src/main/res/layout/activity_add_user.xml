@@ -184,30 +184,18 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
     </FrameLayout>
 
-
-    <FrameLayout
-        android:id="@+id/testingButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/custom_button_ripple_6"
-        app:layout_constraintEnd_toStartOf="@+id/vertical6"
-        app:layout_constraintStart_toStartOf="@+id/vertical1"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal2"
-        app:layout_constraintTop_toTopOf="@+id/horizontal1">
-
-        <ImageView
-            android:id="@+id/continueTesting"
-            android:layout_gravity="center"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
-            android:src="@drawable/forward"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="@id/vertical4"
-            app:layout_constraintStart_toStartOf="@id/vertical3"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </FrameLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/custom_button_11"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_anim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
