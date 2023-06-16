@@ -28,7 +28,7 @@ To build and run the Hidup Sehat Android application, ensure you have the follow
 - Android Gradle Plugin: 8.0.0
 - Gradle: 8.0
   
-# calis
+# Features
 - Sign in : To experience learning in Calis, user can just simply login with their Google Account. Google Sign-In automatically detects and authenticates user activity in the application.
 
 - Add Profile : Allow users to create individual profiles with customizable settings and progress tracking where one Google account can be linked to multiple child profiles. In creating a profile, the user needs to input the child's name and age. 
@@ -43,3 +43,4 @@ To build and run the Hidup Sehat Android application, ensure you have the follow
 
 - Personalized Learning : Offer adaptive learning experiences that adjust difficulty levels based on users performance and learning pace. If the child answers a question wrong, similar questions will appear in the Pengayaan section. With this, the child will focus on improving their weaknesses
 
+![Home](https://github.com/Calis-Top-10/CalisApp/assets/107051384/e69d4757-0dfb-4549-9669-2deea735832a)
