@@ -23,6 +23,7 @@ import com.example.caliscapstone.data.model.get_lesson.Question
 import com.example.caliscapstone.data.model.get_lesson.QuestionDetails
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
 import com.example.caliscapstone.ui.activity.login.LoginActivity
+import com.example.caliscapstone.utils.question.QuestionHelper
 import com.example.caliscapstone.utils.voice.TTSHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -39,6 +40,8 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
     private var buttonSpeak: ImageView? = null
     private var instructionText: TextView? = null
     private lateinit var questionList: QuestionDetails
+
+    private val isCorrects = arrayListOf<Boolean>()
 
     // Audio Interface
     private lateinit var audioRecord: AudioRecord
@@ -95,10 +98,10 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
         progressBarHorizontal.progress = progressBarValue
 
         /* Qyestion Box */
-        val questionList = intent.getSerializableExtra("intent_question") as Question
+        val question = intent.getSerializableExtra("intent_question") as Question
         val questionBox = findViewById<TextView>(R.id.textQuiz)
-        questionBox.text = questionList.questionDetails.question
-        Log.d("testIndex", questionList.toString())
+        questionBox.text = question.questionDetails.question
+        Log.d("testIndex", question.toString())
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
@@ -148,10 +151,8 @@ class ReadVoiceAcitivity : AppCompatActivity()   {
         }
 
         continueButton.setOnClickListener {
-            val data = Intent()
-            data.putExtra("current_progress", "value1")
-            setResult(Activity.RESULT_OK, data)
-            finish()
+            isCorrects.add(true)
+            QuestionHelper.setLearningProgressResultAndFinish(this, isCorrects, question.questionId, tts!!)
         }
     }
 
