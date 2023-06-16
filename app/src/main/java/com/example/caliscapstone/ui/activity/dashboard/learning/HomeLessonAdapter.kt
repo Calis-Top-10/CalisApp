@@ -19,11 +19,11 @@ class HomeLessonAdapter(val lessons: ArrayList<Lesson>, val listener: OnAdapterL
 
         fun bindView(lessons: Lesson) {
             val idConvert: String = when (lessons.lessonLevel) {
-                100 -> "Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level dasar"
-                200 -> "Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level menengah"
-                300 -> "Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level menengah"
-                400 -> "Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level sulit"
-                500 -> "Soal dalam materi pembelajaran ini memiliki tingkat kesulitan di level expert"
+                100 -> "Soal dalam materi pembelajaran ini memiliki kesulitan di level dasar"
+                200 -> "Soal dalam materi pembelajaran ini memiliki kesulitan di level menengah"
+                300 -> "Soal dalam materi pembelajaran ini memiliki kesulitan di level menengah"
+                400 -> "Soal dalam materi pembelajaran ini memiliki kesulitan di level sulit"
+                500 -> "Soal dalam materi pembelajaran ini memiliki kesulitan di level expert"
                 else -> {throw IllegalArgumentException("Id Type Is Not Found")
                 }
             }

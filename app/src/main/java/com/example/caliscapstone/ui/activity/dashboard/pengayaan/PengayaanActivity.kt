@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.caliscapstone.R
-import com.example.caliscapstone.data.model.pengayaan.Question
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeQuestionActivity
+import com.example.caliscapstone.data.model.get_lesson.Question
 
 class PengayaanActivity : AppCompatActivity() {
 

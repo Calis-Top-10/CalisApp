@@ -141,7 +141,7 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
             Log.d("STARTRECORD", "Start record clicked")
             // FIXME: endRecord is is clicked instead of this startRecord
             audioRecord.startRecording()
-            Toast.makeText(this@ReadVoiceAcitivity, "Mulai membaca !", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.GONE
             endRecord.visibility = View.VISIBLE
         }
@@ -149,7 +149,7 @@ class ReadVoiceAcitivity : AppCompatActivity(), TextToSpeech.OnInitListener   {
         endRecord.setOnClickListener {
             audioRecord.stop()
             calisAudioClassifier.isAnswerCorrect(audioRecord, "muak")
-            Toast.makeText(this@ReadVoiceAcitivity, "Stop membaca !", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ReadVoiceAcitivity, "Mulai membaca !", Toast.LENGTH_SHORT).show()
             startRecord.visibility = View.VISIBLE
             endRecord.visibility = View.GONE
             // TODO: Call the function below to release resources
