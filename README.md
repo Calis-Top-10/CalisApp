@@ -20,13 +20,13 @@ git clone https://github.com/Calis-Top-10/CalisApp.git
 The app is written in Kotlin and uses the Gradle build system.
 To build and run the Hidup Sehat Android application, ensure you have the following software installed:
 <ol>
-  Android Studio: 2022.2.1 (Flamingo)
-  Minimum SDK: 24
-  Target SDK: 33
-  JDK: 17
-  Kotlin: 1.8
-  Android Gradle Plugin: 8.0.0
-  Gradle: 8.0
+  +Android Studio: 2022.2.1 (Flamingo)
+  +Minimum SDK: 24
+  +Target SDK: 33
+  +JDK: 17
+  +Kotlin: 1.8
+  +Android Gradle Plugin: 8.0.0
+  +Gradle: 8.0
 </ol>
 
 ## Sign in
