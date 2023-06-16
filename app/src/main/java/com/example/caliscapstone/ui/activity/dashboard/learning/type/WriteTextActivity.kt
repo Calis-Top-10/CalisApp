@@ -114,7 +114,7 @@ class WriteTextActivity : AppCompatActivity() {
             if (paint.isTouch()) {
                 val isCorrect = calisCharacterClassifier.isAnswersCorrect(
                     // TODO: Feed the expectedAnswers from the question
-                    paint.drawToBitmap(Bitmap.Config.ARGB_8888), arrayListOf<String>("J"))
+                    paint.drawToBitmap(Bitmap.Config.ARGB_8888), arrayListOf<String>("A", "0"))
                 if (isCorrect) {
                     Toast.makeText(this@WriteTextActivity, "Jawaban Benar!!", Toast.LENGTH_LONG).show()
                 }

@@ -6,24 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.controls.ControlsProviderService
 import android.util.Log
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.caliscapstone.R
 import com.example.caliscapstone.data.api.ApiConfig
-import com.example.caliscapstone.data.model.get_lesson.Lesson
-import com.example.caliscapstone.data.model.get_lesson.ResponseRead
-import com.example.caliscapstone.data.model.pengayaan.Question
 import com.example.caliscapstone.data.model.pengayaan.ResponsePengayaan
 import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonActivity
-import com.example.caliscapstone.ui.activity.dashboard.learning.HomeLessonAdapter
-import com.example.caliscapstone.ui.activity.dashboard.learning.HomeQuestionActivity
 import com.example.caliscapstone.ui.activity.dashboard.pengayaan.PengayaanActivity
 import com.example.caliscapstone.ui.activity.dashboard.report.ReportActivity
 import com.example.caliscapstone.ui.activity.dashboard.setting.ApplicationSettingActivity
@@ -46,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        setLoadingState(false)
 
         val serverClientId = getString(R.string.web_client_id)
 
@@ -135,8 +130,20 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun setLoadingState(loading: Boolean) {
+        when (loading) {
+            true -> {
+                findViewById<LottieAnimationView>(R.id.loading).visibility = View.VISIBLE
+            }
+
+            false -> {
+                findViewById<LottieAnimationView>(R.id.loading).visibility = View.GONE
+            }
+        }
+    }
 
     private fun getPersonallesson(childId: String) {
+        setLoadingState(true)
 
         val account: GoogleSignInAccount? = GoogleSignIn
             .getLastSignedInAccount(this)
@@ -166,6 +173,7 @@ class HomeActivity : AppCompatActivity() {
                                 val alertDialog: AlertDialog = builder.create()
                                 alertDialog.setCancelable(false)
                                 alertDialog.show()
+                                setLoadingState(false)
                             }
 
                             200 -> {
@@ -176,6 +184,7 @@ class HomeActivity : AppCompatActivity() {
                                         .putExtra("intent_question", responseBody.questions)
                                         .putExtra("intent_id", childId)
                                 )
+                                setLoadingState(false)
                             }
                         }
                     }
