@@ -165,6 +165,8 @@ class HomeLessonActivity : AppCompatActivity() {
                                                     )
                                                     .putExtra("intent_type", data.lessonType)
                                                     .putExtra("intent_question", data.questions)
+                                                    // FIXME: We really need to rename the intent_uuid to child_id instead
+                                                    .putExtra("child_id", intent.getStringExtra("intent_uuid"))
                                             )
                                             finish()
                                         }

@@ -47,14 +47,9 @@ class WriteTextActivity : AppCompatActivity() {
         val saveBtn = findViewById<ImageView>(R.id.saveBtn)
         val undoBtn = findViewById<ImageView>(R.id.undoBtn)
         val clearBtn = findViewById<ImageView>(R.id.clearBtn)
-        tts = TTSHelper.createTTS(this)
+        val instructionBtn = findViewById<ImageView>(R.id.instruction)
 
-        // Speak the instruction
-        val runnable = Runnable {
-            TTSHelper.speakTTS(tts, "Tulis huruf yang ada di dalam kotak!")
-        }
-        val handler = android.os.Handler()
-        handler.postDelayed(runnable, 500)
+        tts = TTSHelper.createTTS(this)
 
         /* serverClientId */
         val serverClientId = getString(R.string.web_client_id)
@@ -90,6 +85,27 @@ class WriteTextActivity : AppCompatActivity() {
         val questionBox = findViewById<TextView>(R.id.textQuiz)
         questionBox.text = question.questionDetails.question
         Log.d("testIndex", question.toString())
+
+        instructionBtn.setOnClickListener {
+            val angkaOrHuruf = if (question.questionDetails.question!![0].isDigit()) {
+                "angka"
+            } else {
+                "huruf"
+            }
+            TTSHelper.speakTTS(tts, "Cara menulis $angkaOrHuruf ${question.questionDetails.question} adalah sebagai berikut")
+        }
+
+        // Speak the instruction
+        val runnable = Runnable {
+            val angkaOrHuruf = if (question.questionDetails.question!![0].isDigit()) {
+                "angka"
+            } else {
+                "huruf"
+            }
+            TTSHelper.speakTTS(tts, "Tulis $angkaOrHuruf yang ada di dalam kotak!")
+        }
+        val handler = android.os.Handler()
+        handler.postDelayed(runnable, 500)
 
         /* Writing Box */
         paint = findViewById(R.id.draw_view)

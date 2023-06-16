@@ -97,7 +97,7 @@ class HomeQuestionActivity : AppCompatActivity() {
     private fun addUserLearningData() {
         val postModel = AddUserLearning(
             intent.getStringExtra("child_id")!!,
-            intent.getStringExtra("lesson_id")!!,
+            intent.getStringExtra("intent_id")!!,
             SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()),
             questionAttempts
         )
